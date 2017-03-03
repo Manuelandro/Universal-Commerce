@@ -3,23 +3,36 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator,
+  TouchableHighlight
 } from 'react-native';
 
 export default class UniversalApp extends Component {
   render() {
+    const routes = [
+      {title: 'First Scene', index: 0},
+      {title: 'Second Scene', index: 1},
+    ];
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          UniversalApp for all environments
-        </Text>
-        <Text style={styles.instructions}>
-          Palma
-        </Text>
-        <Text style={styles.instructions}>
-          ohyeah
-        </Text>
-      </View>
+      <Navigator
+        initialRoute={routes[0]}
+        initialRouteStack={routes}
+        renderScene={(route, navigator) =>
+          <View style={styles.container}>
+            <Text style={styles.welcome}>
+              UniversalApp for all environments huuh
+            </Text>
+            <Text style={styles.instructions}>
+              Palma
+            </Text>
+            <Text style={styles.instructions}>
+              ohyeah
+            </Text>
+          </View>
+        }
+      />
     );
   }
 }
