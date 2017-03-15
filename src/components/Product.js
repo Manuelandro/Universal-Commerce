@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, Image } from 'react-native'
 import ProductItem from './ProductItem'
 import ProductItemDefault from './ProductItemDefault'
-import Button from './Button'
+import { Button } from './common'
 
 const Product = ({ album: { title, artist, thumbnail_image, image } }) =>
     <ProductItem>
@@ -19,7 +19,9 @@ const Product = ({ album: { title, artist, thumbnail_image, image } }) =>
             <Image source={{ uri: image }} style={styles.imageCoverStyles} />
         </ProductItemDefault>
         <ProductItemDefault>
-            <Button />
+            <Button onPress={() => console.log('jejej')}>
+                Buy Now!
+            </Button>
         </ProductItemDefault>
     </ProductItem>
 

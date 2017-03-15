@@ -4,7 +4,7 @@
  * @flow
  */
 
-import { AppRegistry } from 'react-native';
+import { AppRegistry } from 'react-native'
 import UniversalApp from './src/app/app'
 
-AppRegistry.registerComponent('UniversalApp', () => UniversalApp);
+AppRegistry.registerComponent('UniversalApp', () => UniversalApp)

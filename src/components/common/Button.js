@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
-const Button = ({ onPress }) =>
+const Button = ({ onPress, children }) =>
     <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
-        <Text style={styles.buttonTextStyle}>Click</Text>
+        <Text style={styles.buttonTextStyle}>{children}</Text>
     </TouchableOpacity>
 
 const styles = {
@@ -27,4 +27,4 @@ const styles = {
     }
 }
 
-export default Button
+export { Button }

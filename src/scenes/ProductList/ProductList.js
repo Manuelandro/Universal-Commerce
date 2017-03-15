@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import { ScrollView, Text } from 'react-native'
-import Product from './Product'
+import { ScrollView } from 'react-native'
+import Product from '../../components/Product'
+import { PageTitle } from '../../components/common'
 
 class ProductList extends Component {
     constructor() {
@@ -25,7 +26,7 @@ class ProductList extends Component {
         console.log(this.state)
         return (
             <ScrollView>
-                <Text>Product List</Text>
+                <PageTitle title="Product List" />
                 {this.renderAlbums()}
             </ScrollView>
         )
