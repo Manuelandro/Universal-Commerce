@@ -1,9 +1,9 @@
 import React from 'react'
 import { View } from 'react-native'
 
-const ProductItem = (props) =>
+const Card = ({ children }) =>
     <View style={styles.containerStyle}>
-        {props.children}
+        {children}
     </View>
 
 
@@ -25,5 +25,5 @@ const styles = {
 }
 
 
-export default ProductItem
+export { Card }
 

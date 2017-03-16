@@ -1,12 +1,10 @@
 import React from 'react'
 import { Text, View, Image } from 'react-native'
-import ProductItem from './ProductItem'
-import ProductItemDefault from './ProductItemDefault'
-import { Button } from './common'
+import { Card, CardSection, Button } from './common'
 
 const Product = ({ album: { title, artist, thumbnail_image, image } }) =>
-    <ProductItem>
-        <ProductItemDefault>
+    <Card>
+        <CardSection>
             <View style={styles.thumbnailContainerStyle}>
                 <Image source={{ uri: thumbnail_image }} style={styles.thumbnailStyle} />
             </View>
@@ -14,21 +12,21 @@ const Product = ({ album: { title, artist, thumbnail_image, image } }) =>
                 <Text style={styles.albumNameStyle}>{title}</Text>
                 <Text>{artist}</Text>
             </View>
-        </ProductItemDefault>
-        <ProductItemDefault>
+        </CardSection>
+        <CardSection>
             <Image source={{ uri: image }} style={styles.imageCoverStyles} />
-        </ProductItemDefault>
-        <ProductItemDefault>
+        </CardSection>
+        <CardSection>
             <Button onPress={() => console.log('jejej')}>
                 Buy Now!
             </Button>
-        </ProductItemDefault>
-    </ProductItem>
+        </CardSection>
+    </Card>
 
 
 const styles = {
     headerContentStyle: {
-        flewDirection: 'column',
+        flexDirection: 'column',
         justifyContent: 'space-around'
     },
     albumNameStyle: {

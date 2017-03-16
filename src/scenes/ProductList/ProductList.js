@@ -18,7 +18,7 @@ class ProductList extends Component {
 
     renderAlbums() {
         return this.state.albums.map(album =>
-            <Product album={album} />
+            <Product album={album} key={album.title} />
         )
     }
 
@@ -26,7 +26,7 @@ class ProductList extends Component {
         console.log(this.state)
         return (
             <ScrollView>
-                <PageTitle title="Product List" />
+                <PageTitle>Product List</PageTitle>
                 {this.renderAlbums()}
             </ScrollView>
         )

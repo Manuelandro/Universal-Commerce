@@ -13,13 +13,13 @@ const styles = {
         backgroundColor: '#fff',
         borderRadius: 4,
         borderWidth: 1,
-        borderColor: '#00788',
+        borderColor: '#007788',
         marginLeft: 5,
         marginRight: 5
     },
     buttonTextStyle: {
         alignSelf: 'center',
-        color: '#00788',
+        color: '#007788',
         fontSize: 16,
         fontWeight: '600',
         paddingTop: 10,
