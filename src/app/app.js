@@ -1,11 +1,13 @@
+import firebase from 'firebase'
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import firebase from 'firebase'
-import Header from '../components/Header'
-import { Button, Spinner } from '../components/common'
-import Login from '../scenes/Login/Login'
-import ProductList from '../scenes/ProductList/ProductList'
 import { firebaseInit } from '../logic/Firebase/init'
+import OurProvider from '../components/Provider'
+import Header from '../components/Header'
+import Login from '../scenes/Login/Login'
+// import ProductList from '../scenes/ProductList/ProductList'
+import { Button, Spinner } from '../components/common'
+
 
 class UniversalApp extends Component {
   constructor() {
@@ -45,10 +47,12 @@ class UniversalApp extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Header headerText={'Universal App'} />
-        {this.renderContent()}
-      </View>
+      <OurProvider>
+        <View style={{ flex: 1 }}>
+          <Header headerText={'Universal App'} />
+          {this.renderContent()}
+        </View>
+      </OurProvider>
     )
   }
 
