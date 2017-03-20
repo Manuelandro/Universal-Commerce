@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "selected": false,
+        "title": "Who we are",
+        "description": "A modern JavaScript utility library delivering modularity, performance, & extras. Lodash is released under the MIT license & supports modern environments."
+    },
+    {
+        "id": 1,
+        "selected": false,
+        "title": "What we do",
+        "description": "Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met."
+    },
+    {
+        "id": 2,
+        "selected": false,
+        "title": "Contact us",
+        "description": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes."
+    },
+    {
+        "id": 3,
+        "selected": false,
+        "title": "Contact you",
+        "description": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes."
+    },
+    {
+        "id": 4,
+        "selected": false,
+        "title": "Contact them",
+        "description": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes."
+    }
+]

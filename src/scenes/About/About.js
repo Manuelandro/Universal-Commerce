@@ -1,17 +1,32 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
+import { ListView } from 'react-native'
+import { connect } from 'react-redux'
+import AboutRow from './components/AboutRow'
 
 class About extends Component {
-    constructor() {
-        super()
+
+    componentWillMount() {
+        const ds = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2
+        })
+
+        this.dataSource = ds.cloneWithRows(this.props.about)
     }
 
+    renderRow(row) {
+        return <AboutRow row={row} />
+    }
 
     render() {
         return (
-            <ScrollView />
+            <ListView
+                dataSource={this.dataSource}
+                renderRow={this.renderRow}
+            />
         )
     }
 }
 
-export default About
+const mapStateToProps = state => ({ about: state.about })
+
+export default connect(mapStateToProps)(About)

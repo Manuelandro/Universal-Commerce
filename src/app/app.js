@@ -1,11 +1,10 @@
 import firebase from 'firebase'
 import React, { Component } from 'react'
 import { View } from 'react-native'
+import { Provider } from 'react-redux'
+import store from './store'
 import { firebaseInit } from '../logic/Firebase/init'
-import OurProvider from '../components/Provider'
-import Header from '../components/Header'
-import Login from '../scenes/Login/Login'
-// import ProductList from '../scenes/ProductList/ProductList'
+import RouterComponent from './router'
 import { Button, Spinner } from '../components/common'
 
 
@@ -35,9 +34,7 @@ class UniversalApp extends Component {
           <Button onPress={() => firebase.auth().signOut()}>Logout</Button>
         )
       case false:
-        return (
-          <Login />
-        )
+        return
       default:
         return (
           <Spinner />
@@ -47,15 +44,16 @@ class UniversalApp extends Component {
 
   render() {
     return (
-      <OurProvider>
+      <Provider store={store}>
         <View style={{ flex: 1 }}>
-          <Header headerText={'Universal App'} />
-          {this.renderContent()}
+          <RouterComponent />
         </View>
-      </OurProvider>
+      </Provider>
     )
   }
 
 }
 
 export default UniversalApp
+
+/* {this.renderContent()}*/

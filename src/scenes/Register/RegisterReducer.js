@@ -1,5 +1,5 @@
 import * as consts from './constants'
-import initialState from './LoginState.json'
+import initialState from './RegisterState.json'
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
@@ -7,15 +7,19 @@ export default (state = initialState, { type, payload }) => {
             return { ...state, loading: true }
         case consts.LOADER_END:
             return { ...state, loading: false }
-        case consts.LOGIN_START:
-            return { ...state }
-        case consts.LOGIN_SUCCESS:
-            return { ...state, email: '', password: '', loading: false, error: '', user: payload }
-        case consts.LOGIN_FAILED:
-            return { ...state, loading: false, error: payload.message, password: '' }
         case consts.SAVE_FIELD:
             return { ...state, [payload.prop]: payload.value }
+        case consts.REGISTER_START:
+            return { ...state }
+        case consts.REGISTER_PROCESS:
+            return { ...state }
+        case consts.REGISTER_SUCCESS:
+            return { ...state }
+        case consts.REGISTER_FAILED:
+            return { ...state }
         default:
-            return state
+            return { ...state }
     }
+
+
 }

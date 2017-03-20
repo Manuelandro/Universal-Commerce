@@ -1,74 +1,39 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
-import firebase from 'firebase'
-import { Card, CardSection, PageTitle, Input, Button, ErrorMsg, Spinner } from '../../components/common'
+import { ScrollView, Text } from 'react-native'
+import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
+import { Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/common'
+import * as actions from './LoginAction'
 
 class Login extends Component {
-    constructor() {
-        super()
-        this.state = { email: '', password: '', error: '', loading: false }
-    }
-
-    onButtonPress() {
-        const { email, password } = this.state
-
-        this.setState({ error: '', loading: true })
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(this.onLoginSuccess.bind(this))
-            .catch(this.onLoginFailed.bind(this))
-    }
-
-    onLoginSuccess() {
-        this.setState({
-            email: '',
-            password: '',
-            loading: false,
-            error: ''
-        })
-    }
-
-    onLoginFailed(err) {
-        this.setState({
-            loading: false,
-            error: err.message
-        })
-
-        /*firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((result) => {
-
-            })
-            .catch((error) => {
-                this.setState({ error: error.message })
-            })*/
-    }
-
 
     renderButton() {
-        if (this.state.loading) {
-            return (
-                <Spinner />
-            )
+        const { login, loginStart } = this.props
+
+        if (login.loading) {
+            return <Spinner />
         }
 
         return (
-            <Button onPress={this.onButtonPress.bind(this)}>
+            <Button onPress={() => loginStart(login)}>
                 Login!
             </Button>
         )
     }
 
     render() {
+        const { login, saveField } = this.props
+
         return (
             <ScrollView>
-                <PageTitle>Login</PageTitle>
                 <Card>
                     <CardSection>
                         <Input
                             label="Email"
                             placeholder="example@email.com"
                             autoCapitalize="none"
-                            value={this.state.email}
-                            onChangeText={email => this.setState({ email })}
+                            value={login.email}
+                            onChangeText={value => saveField({ prop: 'email', value })}
                         />
                     </CardSection>
                     <CardSection>
@@ -77,8 +42,8 @@ class Login extends Component {
                             placeholder="password"
                             autoCapitalize="none"
                             secureTextEntry
-                            value={this.state.password}
-                            onChangeText={password => this.setState({ password })}
+                            value={login.password}
+                            onChangeText={value => saveField({ prop: 'password', value })}
                         />
                     </CardSection>
 
@@ -86,12 +51,25 @@ class Login extends Component {
                         {this.renderButton()}
                     </CardSection>
 
-                    <ErrorMsg>{this.state.error}</ErrorMsg>
+                    <ErrorMsg>{login.error}</ErrorMsg>
 
+                    <Text
+                        onPress={() => Actions.register()}
+                    >
+                        Non hai un account? Registrati
+                    </Text>
                 </Card>
             </ScrollView>
         )
     }
 }
 
-export default Login
+const { saveField, loginStart } = actions
+const mapStateToProps = ({ login }) => ({ login })
+const mapDispatchToProps = { saveField, loginStart }
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login)

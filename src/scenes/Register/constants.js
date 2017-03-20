@@ -1,0 +1,7 @@
+export const LOADER_START = 'LOADER_START'
+export const LOADER_END = 'LOADER_END'
+export const REGISTER_START = 'LOGIN_START'
+export const REGISTER_PROCESS = 'LOGIN_PROCESS'
+export const REGISTER_SUCCESS = 'LOGIN_SUCCESS'
+export const REGISTER_FAILED = 'LOGIN_FAILED'
+export const SAVE_FIELD = 'SAVE_FIELD'
