@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux'
-import firebase from 'firebase'
 import * as consts from './constants'
+import { getUser } from '../../logic/Firebase/user.getters'
 
 export const saveField = payload => dispatch => dispatch({ type: consts.SAVE_FIELD, payload })
 
@@ -10,7 +10,7 @@ export const loginStart = payload => dispatch => {
 }
 
 export const loginProcess = ({ email, password }) => dispatch => {
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    getUser(email, password)
         .then(user => dispatch(loginSuccess(user)))
         .catch(error => dispatch(loginFailed(error)))
 }

@@ -1,5 +1,6 @@
-import firebase from 'firebase'
+import { Actions } from 'react-native-router-flux'
 import * as consts from './constants'
+import { registerUser, createUser } from '../../logic/Firebase/user.setters'
 
 export const saveField = payload => dispatch => dispatch({ type: consts.SAVE_FIELD, payload })
 
@@ -11,19 +12,22 @@ export const registerStart = payload => dispatch => {
 }
 
 export const registerProcess = payload => dispatch => {
-    console.log(payload)
-    firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+    registerUser(payload)
         .then(user => dispatch(registerUserInfo(user, payload)))
         .catch(error => dispatch(registerFailed(error)))
 }
 
 export const registerUserInfo = (user, payload) => dispatch => {
     const { firstname, lastname, email } = payload
-    firebase.database().ref(`users/${user.uid}/userInfo`)
-        .push({ firstname, lastname, email })
-    dispatch(registerSuccess(payload))
+    createUser(user.uid, { firstname, lastname, email })
+        .then(() => dispatch(registerSuccess(payload)))
+        .catch(error => dispatch(registerFailed(error)))
 }
 
-export const registerSuccess = payload => dispatch => dispatch({ type: consts.REGISTER_SUCCESS, payload })
+export const registerSuccess = payload => dispatch => {
+    dispatch({ type: consts.REGISTER_SUCCESS, payload })
+    Actions.main()
+}
 
-export const registerFailed = payload => dispatch => dispatch({ type: consts.REGISTER_FAILED, payload })
+export const registerFailed = payload => dispatch =>
+    dispatch({ type: consts.REGISTER_FAILED, payload })
