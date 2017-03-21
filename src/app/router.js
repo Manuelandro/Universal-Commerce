@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { Actions, Scene, Router } from 'react-native-router-flux'
 import * as comps from '../scenes/'
 import * as icons from '../scenes/icons'

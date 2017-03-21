@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 const Card = ({ children }) =>
     <View style={styles.containerStyle}>
@@ -7,7 +7,7 @@ const Card = ({ children }) =>
     </View>
 
 
-const styles = {
+const styles = StyleSheet.create({
     containerStyle: {
         borderWidth: 1,
         borderRadius: 2,
@@ -22,7 +22,7 @@ const styles = {
         marginRight: 5,
         marginTop: 10
     }
-}
+})
 
 
 export { Card }

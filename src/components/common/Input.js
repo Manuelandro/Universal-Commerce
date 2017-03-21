@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { StyleSheet, View, Text, TextInput } from 'react-native'
 
 const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize }) =>
     <View style={styles.containerStyle}>
@@ -15,7 +15,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
         />
     </View>
 
-const styles = {
+const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         flexDirection: 'row',
@@ -38,6 +38,6 @@ const styles = {
         paddingLeft: 5,
         flex: 1
     }
-}
+})
 
 export { Input }

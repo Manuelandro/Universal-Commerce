@@ -1,17 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 
 const ErrorMsg = ({ children }) =>
     <View>
         <Text style={styles.errorTextStyles}>{children}</Text>
     </View>
 
-const styles = {
+const styles = StyleSheet.create({
     errorTextStyles: {
         fontSize: 20,
         alignSelf: 'center',
         color: 'red'
     }
-}
+})
 
 export { ErrorMsg }

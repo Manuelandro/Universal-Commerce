@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 
 const PageTitle = ({ children }) =>
     <View style={styles.titleContainer}>
@@ -7,7 +7,7 @@ const PageTitle = ({ children }) =>
     </View>
 
 
-const styles = {
+const styles = StyleSheet.create({
     titleContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -22,6 +22,6 @@ const styles = {
         fontWeight: '600',
         color: '#000'
     }
-}
+})
 
 export { PageTitle }
