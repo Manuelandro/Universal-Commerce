@@ -3,25 +3,29 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --port 3000 --config webpack.config.js --inline --hot --colors --quiet",
+    "server": "babel-node web/server/index.js",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
     "axios": "^0.15.3",
     "babel-loader": "^6.2.10",
-    "file-loader": "^0.10.0",
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
     "firebase": "^3.6.6",
+    "graphql": "^0.9.1",
+    "graphql-server-express": "^0.6.0",
+    "graphql-tools": "^0.10.1",
+    "mysql": "^2.12.0",
     "node-fetch": "^1.6.3",
     "react": "15.4.2",
     "react-hot-loader": "^1.3.1",
     "react-native": "0.42.0",
     "react-native-router-flux": "^3.38.0",
-    "react-native-web": "0.0.79",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "url-loader": "^0.5.7"
+    "sequelize": "^3.30.3"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -32,8 +36,7 @@
     "eslint-config-rallycoding": "^3.2.0",
     "jest": "18.1.0",
     "react-test-renderer": "15.4.2",
-    "webpack": "1.13.2",
-    "webpack-dev-server": "^1.16.3"
+    "webpack": "^2.2.1"
   },
   "jest": {
     "preset": "react-native"
