@@ -2,8 +2,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
 import Schema from './graphql/schema'
+import { port } from './config'
 
-const PORT = 3000
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -29,9 +29,9 @@ app.use('/graphiql',
         }`
     })
 )
-app.get('/', (req, res) => console.log(res))
+app.get('/', (req, res) => res)
 
 
-app.listen(PORT, () => console.log(
-    `Server is now running on http://localhost:${PORT}`
+app.listen(port, () => console.log(
+    `Server is now running on http://localhost:${port}`
 ))

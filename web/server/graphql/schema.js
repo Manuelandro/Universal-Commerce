@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools'
-import { Customers, Orders } from '../mongodb/connectors'
+import { Customers, Orders, Products } from '../mongodb/connectors'
 
 const schema = `
     type Customer {
@@ -14,6 +14,7 @@ const schema = `
     entity_id: ID!
     base_grand_total: Float
     customer: Customer
+    products: [Product]
     }
 
     type Catalog {
@@ -29,8 +30,13 @@ const schema = `
 
     type Product {
     entity_id: ID!
+    sku: String!
     name: String
     enabled: Boolean!
+    price: Float
+    description: String
+    brand: String
+    region: String
     category: Category
     }
 
@@ -55,7 +61,7 @@ const resolvers = {
             return Customers.then(res => res.find({}).toArray())
         },
         products() {
-            return Products.then(res => res.find({}))
+            return Products.then(res => res.find({}).toArray())
         }
     },
     Customer: {
@@ -66,6 +72,9 @@ const resolvers = {
     Order: {
         customer(order) {
             return Customers.then(res => res.findOne({ email: order.customer }))
+        },
+        products(order) {
+            return Products.then(res => res.find({}).toArray())
         }
     }
 }
