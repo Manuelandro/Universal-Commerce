@@ -1,5 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
+import AssetsPlugin from 'assets-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
@@ -8,17 +10,15 @@ const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('-
 
 const config = {
     output: {
-        path: path.resolve(__dirname, './web/client'),
-        publicPath: '/client/',
-        pathInfo: isVerbose
+        path: path.resolve(__dirname, './client/public/')
     },
     module: {
         rules: [
             {
                 test: /\.js?$/,
-                loaded: 'babel-loader',
+                loader: 'babel-loader',
                 include: [
-                    path.resolve(__dirname, './src')
+                    path.resolve(__dirname, '../src')
                 ],
                 query: {
                     cacheDirectory: isDebug,
@@ -29,7 +29,7 @@ const config = {
                             targets: {
                                 browsers: [">1%", "last 4 versions", "Firefox ESR", "not ie < 9"]
                             },
-                            modules: flase,
+                            modules: false,
                             useBuiltIns: false,
                             debug: false
                         }],
@@ -101,7 +101,7 @@ const clientConfig = {
     name: 'client',
     target: 'web',
     entry: {
-        client: ['babel-polyfill', '../index.web.js']
+        client: ['babel-polyfill', './index.web.js']
     },
     output: {
         ...config.output,
@@ -117,7 +117,7 @@ const clientConfig = {
         }),
         // https://github.com/sporto/assets-webpack-plugin#options
         new AssetsPlugin({
-            path: path.resolve(__dirname, '../build'),
+            path: path.resolve(__dirname, './build'),
             filename: 'assets.json',
             prettyPrint: true,
         }),
@@ -159,3 +159,5 @@ const clientConfig = {
         tls: 'empty',
     },
 }
+
+export { config, clientConfig }

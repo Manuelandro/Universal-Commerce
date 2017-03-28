@@ -6,10 +6,11 @@
 
 /* global document:false */
 
-import { AppRegistry } from 'react-native'
-import UniversalApp from './src/app/app'
+import React from 'react'
+import { render } from 'react-dom'
+import UniversalApp from './src/app/app.web'
 
-AppRegistry.registerComponent('UniversalApp', () => UniversalApp)
-AppRegistry.runApplication('App', {
-  rootTag: document.getElementById('react-root')
-})
+render(
+  React.createElement(UniversalApp),
+  document.getElementById('react-root')
+)

@@ -1,3 +1,4 @@
+import path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
@@ -29,7 +30,10 @@ app.use('/graphiql',
         }`
     })
 )
-app.get('/', (req, res) => res)
+app.use(express.static(path.resolve(__dirname, '../../web/client/public/')))
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../web/client/index.html'))
+})
 
 
 app.listen(port, () => console.log(

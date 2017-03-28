@@ -2,18 +2,10 @@ import firebase from 'firebase'
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Provider } from 'react-redux'
-import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apollo'
 import store from './store'
 import { firebaseInit } from '../logic/Firebase/init'
 import RouterComponent from './router'
 import { Button, Spinner } from '../components/common'
-
-
-const client = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3000/graphql',
-  })
-})
 
 class UniversalApp extends Component {
   constructor() {
@@ -51,16 +43,14 @@ class UniversalApp extends Component {
 
   render() {
     return (
-      <ApolloProvider store={store} client={client}>
+      <Provider store={store}>
         <View style={{ flex: 1 }}>
           <RouterComponent />
         </View>
-      </ApolloProvider>
+      </Provider>
     )
   }
 
 }
 
 export default UniversalApp
-
-/* {this.renderContent()}*/
