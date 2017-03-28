@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
-import Schema from './schema'
+import Schema from './graphql/schema'
 
 const PORT = 3000
 const app = express()
