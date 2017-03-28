@@ -1,4 +1,4 @@
-Cross Platform App with React Native and React Native for Web
+Cross Platform eCommerce App
 @Manuel Palma
 Eataly Net S.R.L.
 
@@ -14,7 +14,9 @@ Eataly Net S.R.L.
 |------|------|
 |[React](https://github.com/facebook/react)|React|
 |[React Native](https://github.com/facebook/react-native)|React Native|
-|[React Native for Web](https://github.com/necolas/react-native-web)|React Native for Web|
 |[Redux](https://github.com/reactjs/redux)|Redux|
+|[GraphQL](http://graphql.org/learn/)|GraphQL|
+|[Mongoose](http://mongoosejs.com/)|Mongoose for MongoDB|
+|[Apollo](http://www.apollodata.com/)|Apollo Client|
 |[Firebase](https://github.com/firebase/)|Firebase|
 |[React Native Codepush](https://github.com/Microsoft/react-native-code-push)|React Native Codepush|
