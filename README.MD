@@ -1,6 +1,5 @@
 Cross Platform eCommerce App
 @Manuel Palma
-Eataly Net S.R.L.
 
 ## Platform Support
 * iOS
