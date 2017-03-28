@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ListView } from 'react-native'
 import { connect } from 'react-redux'
-import AboutRow from './components/AboutRow'
+import AboutRow from './components/row'
 
 class About extends Component {
 

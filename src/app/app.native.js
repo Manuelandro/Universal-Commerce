@@ -4,8 +4,8 @@ import { View } from 'react-native'
 import { Provider } from 'react-redux'
 import store from './store'
 import { firebaseInit } from '../logic/Firebase/init'
-import RouterComponent from './router'
-import { Button, Spinner } from '../components/common'
+import RouterComponent from './router.native'
+import { Button, Spinner } from '../components/native'
 
 class UniversalApp extends Component {
   constructor() {

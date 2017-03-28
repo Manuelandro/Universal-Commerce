@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, Image } from 'react-native'
-import { Card, CardSection, Button } from './common'
+import { Card, CardSection, Button } from './index'
 
 const Product = ({ album: { title, artist, thumbnail_image, image } }) =>
     <Card>
@@ -50,4 +50,4 @@ const styles = {
 }
 
 
-export default Product
+export { Product }

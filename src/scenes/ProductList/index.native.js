@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
-import Product from '../../components/Product'
+import { Product } from '../../components/native'
 
 class ProductList extends Component {
     constructor() {

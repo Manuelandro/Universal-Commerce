@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { ScrollView, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
-import { Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/common'
-import * as actions from './LoginAction'
+import { Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/native'
+import * as actions from './actions'
 
 class Login extends Component {
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
 import { connect } from 'react-redux'
-import { Card, CardSection, Button, Input, Spinner } from '../../components/common'
-import * as actions from './RegisterAction'
+import { Card, CardSection, Button, Input, Spinner } from '../../components/native'
+import * as actions from './actions'
 
 class Register extends Component {
     renderButton() {
