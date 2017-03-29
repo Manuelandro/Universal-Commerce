@@ -21,11 +21,11 @@ class UniversalApp extends Component {
   render() {
     return (
       <ApolloProvider store={store} client={client}>
-
+        <ConnectedRouter history={history}>
           <div style={{ flex: 1 }}>
             <RouterComponent />
           </div>
-
+        </ConnectedRouter>
       </ApolloProvider>
     )
   }
