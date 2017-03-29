@@ -1,6 +1,5 @@
 /* global window:false */
-import { browserHistory } from 'react-router'
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createBrowserHistory } from 'history'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { persistStore, autoRehydrate } from 'redux-persist'
@@ -9,6 +8,7 @@ import thunk from 'redux-thunk'
 import reducers from '../reducers'
 
 const initialState = {}
+const history = createBrowserHistory()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const theReducer = combineReducers({
@@ -16,10 +16,11 @@ const theReducer = combineReducers({
     routing: routerReducer
 })
 
+// https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux
 const enhancer = composeEnhancers(
     applyMiddleware(
         thunk,
-        routerMiddleware(createBrowserHistory())
+        routerMiddleware(history)
     ),
     autoRehydrate()
 )
@@ -35,11 +36,6 @@ persistStore(
     { storage: localForage }
 )
 
-// https://github.com/reactjs/react-router-redux/issues/442
-const history = syncHistoryWithStore(
-    browserHistory,
-    store
-)
 
 if (module.hot) {
     module.hot.accept('./reducers', () => {

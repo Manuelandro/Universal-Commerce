@@ -1,52 +1,54 @@
 import React from 'react'
-import { Text, View, Image } from 'react-native'
+import styled from 'styled-components/native'
 import { Card, CardSection, Button } from './index'
 
 const {
-    headerContentStyle,
-    albumNameStyle,
-    thumbnailContainerStyle,
-    thumbnailStyle,
-    imageCoverStyles
+    ViewHead,
+    Album,
+    Artist,
+    ViewThumb,
+    Thumb,
+    Cover
 } = {
-    headerContentStyle: {
-        flexDirection: 'column',
-        justifyContent: 'space-around'
-    },
-    albumNameStyle: {
-        fontSize: 18
-    },
-    thumbnailContainerStyle: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 10,
-        marginLeft: 10
-    },
-    thumbnailStyle: {
-        height: 50,
-        width: 50
-    },
-    imageCoverStyles: {
-        width: null,
-        height: 300,
-        flex: 1
-    }
+    ViewHead: styled.View`
+        flexDirection: column;
+        justifyContent: space-around;
+    `,
+    Album: styled.View`
+        fontSize: 18;
+    `,
+    Artist: styled.View``,
+    ViewThumb: styled.View`
+        justifyContent: center;
+        alignItems: center;
+        marginRight: 10;
+        marginLeft: 10;
+    `,
+    Thumb: styled.Image`
+        height: 50;
+        width: 50;
+    `,
+    Cover: styled.Image`
+        width: null;
+        height: 300;
+        flex: 1;
+    `
 }
 
 
 const Product = ({ album: { title, artist, thumbnail_image, image } }) =>
     <Card>
         <CardSection>
-            <View style={thumbnailContainerStyle}>
-                <Image source={{ uri: thumbnail_image }} style={thumbnailStyle} />
-            </View>
-            <View style={headerContentStyle}>
-                <Text style={albumNameStyle}>{title}</Text>
-                <Text>{artist}</Text>
-            </View>
+            <ViewThumb>
+                <Thumb source={{ uri: thumbnail_image }} />
+            </ViewThumb>
+            <ViewHead>
+                <Album>{title}</Album>
+                <Artist>{artist}</Artist>
+            </ViewHead>
         </CardSection>
         <CardSection>
-            <Image source={{ uri: image }} style={imageCoverStyles} />
+            <Cover source={{ uri: image }} />
         </CardSection>
         <CardSection>
             <Button onPress={() => console.log('jejej')}>

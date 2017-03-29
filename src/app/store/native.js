@@ -1,18 +1,33 @@
 /* global window:false */
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { AsyncStorage } from 'react-native'
-import { persistStore } from 'redux-persist'
+import { persistStore, autoRehydrate } from 'redux-persist'
 import thunk from 'redux-thunk'
 import reducers from '../reducers/'
 
+const initialState = {}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 const theReducer = combineReducers({ ...reducers })
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(theReducer, composeEnhancers(applyMiddleware(thunk)))
+const enhancer = composeEnhancers(
+    applyMiddleware(
+        thunk
+    ),
+    autoRehydrate()
+)
+
+
+const store = createStore(
+    theReducer,
+    initialState,
+    enhancer
+)
 
 persistStore(
     store,
-    { storage: AsyncStorage
-})
+    { storage: AsyncStorage }
+)
+
 
 export default store

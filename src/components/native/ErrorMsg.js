@@ -1,17 +1,20 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import styled from 'styled-components/native'
 
-const { errorTextStyles } = StyleSheet.create({
-    errorTextStyles: {
-        fontSize: 20,
-        alignSelf: 'center',
-        color: 'red'
-    }
-})
+const { Text, View } = {
+    View: styled.View`
+
+    `,
+    Text: styled.Text`
+        fontSize: 20;
+        alignSelf: center;
+        color: red;
+    `
+}
 
 const ErrorMsg = ({ children }) =>
     <View>
-        <Text style={errorTextStyles}>{children}</Text>
+        <Text>{children}</Text>
     </View>
 
 

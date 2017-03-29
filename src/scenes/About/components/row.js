@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Text, LayoutAnimation } from 'react-native'
 import { connect } from 'react-redux'
-import { Card, CardSection } from '../../../components/common/'
-import * as actions from '../AboutAction'
+import { Card, CardSection } from '../../../components/native/'
+import * as actions from '../actions'
 
 class AboutRow extends Component {
 

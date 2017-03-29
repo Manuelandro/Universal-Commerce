@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const { View, Text } = {
     View: styled.div`
+        display: flex;
         height: 60px;
         padding-top: 15px;
         justify-content: center;

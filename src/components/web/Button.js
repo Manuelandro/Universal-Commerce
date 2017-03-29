@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const { button, Text } = {
     button: styled.button`
+        display: flex;
         flex: 1;
         align-self: stretch;
         background-color: #fff;

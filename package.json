@@ -1,9 +1,9 @@
 {
-  "name": "UniversalApp",
+  "name": "Universal eCommerce",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build:web": "babel-node web/builder",
+    "build:web": "babel-node webpack/builder",
     "server": "babel-node web/server/index.js",
     "run:web": "npm run build:web && npm run server",
     "start": "node node_modules/react-native/local-cli/cli.js start",

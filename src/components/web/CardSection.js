@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const { View } = {
     View: styled.div`
+        display: flex;
         border-bottom-width: 1px;
         border-color: #ddd;
         padding: 5px,

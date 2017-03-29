@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const { View, Text, TextInput } = {
     View: styled.div`
+        display: flex;
         flex: 1;
         flex-direction: row;
         align-items: center;
@@ -17,29 +18,34 @@ const { View, Text, TextInput } = {
         padding-left: 5px;
         padding-right: 5px;
         font-size: 18px;
-        line-height: 23px;
+        line-height: 40px;
     `,
     TextInput: styled.input`
         font-size: 18px;
         padding-left: 5px;
         flex: 1;
+        text-transform: ${props => props.autoCapitalize ? 'capitalize' : 'none'};
     `
 }
 
 
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize }) =>
-    <View>
-        <Text>{label}</Text>
-        <TextInput
-            placeholder={placeholder}
-            autoCorrect={false}
-            autoCapitalize={autoCapitalize}
-            secureTextEntry={secureTextEntry}
-            value={value}
-            onChange={onChangeText}
-        />
-    </View>
+const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize }) => {
+    const type = (!secureTextEntry) ? 'text' : 'password'
+
+    return (
+        <View>
+            <Text>{label}</Text>
+            <TextInput
+                type={type}
+                placeholder={placeholder}
+                autoCapitalize={autoCapitalize}
+                value={value}
+                onChange={onChangeText}
+            />
+        </View>
+    )
+}
 
 
 export { Input }

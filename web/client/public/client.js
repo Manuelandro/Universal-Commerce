@@ -1,28 +1,28 @@
 webpackJsonp([0],{
 
-/***/ 199:
+/***/ 182:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Input__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Input__ = __webpack_require__(295);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_0__Input__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Image__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Image__ = __webpack_require__(294);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_1__Image__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Button__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Button__ = __webpack_require__(289);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__Button__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PageTitle__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PageTitle__ = __webpack_require__(296);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Card__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Card__ = __webpack_require__(290);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_4__Card__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__CardSection__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__CardSection__ = __webpack_require__(291);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_5__CardSection__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ErrorMsg__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ErrorMsg__ = __webpack_require__(292);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_6__ErrorMsg__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Spinner__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Spinner__ = __webpack_require__(298);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_7__Spinner__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Header__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Header__ = __webpack_require__(293);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Product__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Product__ = __webpack_require__(297);
 /* unused harmony namespace reexport */
 
 
@@ -39,7 +39,7 @@ webpackJsonp([0],{
 
 /***/ }),
 
-/***/ 200:
+/***/ 183:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62,16 +62,16 @@ var RESET_SCENE = 'RESET_SCENE';
 
 /***/ }),
 
-/***/ 296:
+/***/ 269:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(562);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(534);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_app_app_web__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_app_app_web__ = __webpack_require__(285);
 /* global document:false */
 
 
@@ -85,17 +85,17 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(
 
 /***/ }),
 
-/***/ 312:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_apollo__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_redux__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store_web__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routers_web__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_redux__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store_web__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routers_web__ = __webpack_require__(287);
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/app/app.web.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -177,13 +177,13 @@ var UniversalApp = function (_Component) {
 
 /***/ }),
 
-/***/ 313:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scenes_Login_reducer__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__scenes_Register_reducer__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scenes_About_reducer__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scenes_Login_reducer__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__scenes_Register_reducer__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scenes_About_reducer__ = __webpack_require__(302);
 
 
 
@@ -198,16 +198,16 @@ var reducers = {
 
 /***/ }),
 
-/***/ 314:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(652);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scenes_Login_index_web__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__scenes_ProductList_index_web__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__scenes_About_index_web__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(624);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scenes_Login_index_web__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__scenes_ProductList_index_web__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__scenes_About_index_web__ = __webpack_require__(301);
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/app/routers/web.js',
     _this = this;
 
@@ -262,21 +262,20 @@ var RouterComponent = function RouterComponent() {
 
 /***/ }),
 
-/***/ 315:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_redux__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history__ = __webpack_require__(545);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_history__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_redux_persist__ = __webpack_require__(714);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_localforage__ = __webpack_require__(547);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_localforage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_localforage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_redux_thunk__ = __webpack_require__(717);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_redux_thunk__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reducers__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_redux__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_history__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux_persist__ = __webpack_require__(663);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_localforage__ = __webpack_require__(520);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_localforage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_localforage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_redux_thunk__ = __webpack_require__(666);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_redux_thunk__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__reducers__ = __webpack_require__(286);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return history; });
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -289,22 +288,20 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 
-
 var initialState = {};
-var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || __WEBPACK_IMPORTED_MODULE_3_redux__["compose"];
+var history = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_history__["createBrowserHistory"])();
+var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || __WEBPACK_IMPORTED_MODULE_2_redux__["compose"];
 
-var theReducer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_redux__["combineReducers"])(_extends({}, __WEBPACK_IMPORTED_MODULE_7__reducers__["a" /* default */], {
-    routing: __WEBPACK_IMPORTED_MODULE_1_react_router_redux__["b" /* routerReducer */]
+var theReducer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_redux__["combineReducers"])(_extends({}, __WEBPACK_IMPORTED_MODULE_6__reducers__["a" /* default */], {
+    routing: __WEBPACK_IMPORTED_MODULE_0_react_router_redux__["b" /* routerReducer */]
 }));
 
-var enhancer = composeEnhancers(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_6_redux_thunk___default.a, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_router_redux__["c" /* routerMiddleware */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_history__["createBrowserHistory"])())), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_redux_persist__["a" /* autoRehydrate */])());
+// https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux
+var enhancer = composeEnhancers(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_redux__["applyMiddleware"])(__WEBPACK_IMPORTED_MODULE_5_redux_thunk___default.a, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_router_redux__["c" /* routerMiddleware */])(history)), __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_redux_persist__["a" /* autoRehydrate */])());
 
-var store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_redux__["createStore"])(theReducer, initialState, enhancer);
+var store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_redux__["createStore"])(theReducer, initialState, enhancer);
 
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_redux_persist__["b" /* persistStore */])(store, { storage: __WEBPACK_IMPORTED_MODULE_5_localforage___default.a });
-
-// https://github.com/reactjs/react-router-redux/issues/442
-var history = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_router_redux__["syncHistoryWithStore"])(__WEBPACK_IMPORTED_MODULE_0_react_router__["a" /* browserHistory */], store);
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_redux_persist__["b" /* persistStore */])(store, { storage: __WEBPACK_IMPORTED_MODULE_4_localforage___default.a });
 
 if (false) {
     module.hot.accept('./reducers', function () {
@@ -317,7 +314,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 316:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -328,7 +325,7 @@ if (false) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/Button.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border-radius: 4px;\n        border-width: 1px;\n        border-color: #007788;\n        margin-left: 5px;\n        margin-right: 5px;\n    '], ['\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border-radius: 4px;\n        border-width: 1px;\n        border-color: #007788;\n        margin-left: 5px;\n        margin-right: 5px;\n    ']),
+var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border-radius: 4px;\n        border-width: 1px;\n        border-color: #007788;\n        margin-left: 5px;\n        margin-right: 5px;\n    '], ['\n        display: flex;\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border-radius: 4px;\n        border-width: 1px;\n        border-color: #007788;\n        margin-left: 5px;\n        margin-right: 5px;\n    ']),
     _templateObject2 = _taggedTemplateLiteral(['\n        align-self: center;\n        color: #007788;\n        font-size: 16px;\n        font-weight: 600;\n        padding-top: 10px;\n        padding-bottom: 10px;\n    '], ['\n        align-self: center;\n        color: #007788;\n        font-size: 16px;\n        font-weight: 600;\n        padding-top: 10px;\n        padding-bottom: 10px;\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -351,7 +348,7 @@ var Button = function Button(_ref) {
         'button',
         { onClick: onPress, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 27
+                lineNumber: 28
             },
             __self: _this
         },
@@ -360,7 +357,7 @@ var Button = function Button(_ref) {
             {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 28
+                    lineNumber: 29
                 },
                 __self: _this
             },
@@ -373,7 +370,7 @@ var Button = function Button(_ref) {
 
 /***/ }),
 
-/***/ 317:
+/***/ 290:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -416,7 +413,7 @@ var Card = function Card(_ref) {
 
 /***/ }),
 
-/***/ 318:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -427,7 +424,7 @@ var Card = function Card(_ref) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/CardSection.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        border-bottom-width: 1px;\n        border-color: #ddd;\n        padding: 5px,\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    '], ['\n        border-bottom-width: 1px;\n        border-color: #ddd;\n        padding: 5px,\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        border-bottom-width: 1px;\n        border-color: #ddd;\n        padding: 5px,\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    '], ['\n        display: flex;\n        border-bottom-width: 1px;\n        border-color: #ddd;\n        padding: 5px,\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -447,7 +444,7 @@ var CardSection = function CardSection(_ref) {
         {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 17
+                lineNumber: 18
             },
             __self: _this
         },
@@ -459,7 +456,7 @@ var CardSection = function CardSection(_ref) {
 
 /***/ }),
 
-/***/ 319:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -515,7 +512,7 @@ var ErrorMsg = function ErrorMsg(_ref) {
 
 /***/ }),
 
-/***/ 320:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -526,7 +523,7 @@ var ErrorMsg = function ErrorMsg(_ref) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/Header.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        height: 60px;\n        padding-top: 15px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fcfcfc;\n        box-shadow: 0 2px 8px #000;\n        position: relative;\n    '], ['\n        height: 60px;\n        padding-top: 15px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fcfcfc;\n        box-shadow: 0 2px 8px #000;\n        position: relative;\n    ']),
+var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        height: 60px;\n        padding-top: 15px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fcfcfc;\n        box-shadow: 0 2px 8px #000;\n        position: relative;\n    '], ['\n        display: flex;\n        height: 60px;\n        padding-top: 15px;\n        justify-content: center;\n        align-items: center;\n        background-color: #fcfcfc;\n        box-shadow: 0 2px 8px #000;\n        position: relative;\n    ']),
     _templateObject2 = _taggedTemplateLiteral(['\n        font-size: 20px;\n    '], ['\n        font-size: 20px;\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -549,7 +546,7 @@ var Header = function Header(_ref) {
         {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 21
+                lineNumber: 22
             },
             __self: _this
         },
@@ -558,7 +555,7 @@ var Header = function Header(_ref) {
             {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 22
+                    lineNumber: 23
                 },
                 __self: _this
             },
@@ -571,7 +568,7 @@ var Header = function Header(_ref) {
 
 /***/ }),
 
-/***/ 321:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -609,7 +606,7 @@ var Image = function Image(_ref) {
 
 /***/ }),
 
-/***/ 322:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -620,9 +617,9 @@ var Image = function Image(_ref) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/Input.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        flex: 1;\n        flex-direction: row;\n        align-items: center;\n        border-width: 1px;\n        border-color: #ccc;\n        margin-left: 5px;\n        margin-right: 5px;\n    '], ['\n        flex: 1;\n        flex-direction: row;\n        align-items: center;\n        border-width: 1px;\n        border-color: #ccc;\n        margin-left: 5px;\n        margin-right: 5px;\n    ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n        height: 40px;\n        flex: 3;\n        padding-left: 5px;\n        padding-right: 5px;\n        font-size: 18px;\n        line-height: 23px;\n    '], ['\n        height: 40px;\n        flex: 3;\n        padding-left: 5px;\n        padding-right: 5px;\n        font-size: 18px;\n        line-height: 23px;\n    ']),
-    _templateObject3 = _taggedTemplateLiteral(['\n        font-size: 18px;\n        padding-left: 5px;\n        flex: 1;\n    '], ['\n        font-size: 18px;\n        padding-left: 5px;\n        flex: 1;\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        flex: 1;\n        flex-direction: row;\n        align-items: center;\n        border-width: 1px;\n        border-color: #ccc;\n        margin-left: 5px;\n        margin-right: 5px;\n    '], ['\n        display: flex;\n        flex: 1;\n        flex-direction: row;\n        align-items: center;\n        border-width: 1px;\n        border-color: #ccc;\n        margin-left: 5px;\n        margin-right: 5px;\n    ']),
+    _templateObject2 = _taggedTemplateLiteral(['\n        height: 40px;\n        flex: 3;\n        padding-left: 5px;\n        padding-right: 5px;\n        font-size: 18px;\n        line-height: 40px;\n    '], ['\n        height: 40px;\n        flex: 3;\n        padding-left: 5px;\n        padding-right: 5px;\n        font-size: 18px;\n        line-height: 40px;\n    ']),
+    _templateObject3 = _taggedTemplateLiteral(['\n        font-size: 18px;\n        padding-left: 5px;\n        flex: 1;\n        text-transform: ', ';\n    '], ['\n        font-size: 18px;\n        padding-left: 5px;\n        flex: 1;\n        text-transform: ', ';\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -632,7 +629,9 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 var _View$Text$TextInput = {
     View: __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div(_templateObject),
     Text: __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].label(_templateObject2),
-    TextInput: __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_templateObject3)
+    TextInput: __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].input(_templateObject3, function (props) {
+        return props.autoCapitalize ? 'capitalize' : 'none';
+    })
 },
     View = _View$Text$TextInput.View,
     Text = _View$Text$TextInput.Text,
@@ -646,12 +645,15 @@ var Input = function Input(_ref) {
         placeholder = _ref.placeholder,
         secureTextEntry = _ref.secureTextEntry,
         autoCapitalize = _ref.autoCapitalize;
+
+    var type = !secureTextEntry ? 'text' : 'password';
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         View,
         {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 32
+                lineNumber: 37
             },
             __self: _this
         },
@@ -660,22 +662,21 @@ var Input = function Input(_ref) {
             {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 33
+                    lineNumber: 38
                 },
                 __self: _this
             },
             label
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(TextInput, {
+            type: type,
             placeholder: placeholder,
-            autoCorrect: false,
             autoCapitalize: autoCapitalize,
-            secureTextEntry: secureTextEntry,
             value: value,
             onChange: onChangeText,
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 34
+                lineNumber: 39
             },
             __self: _this
         })
@@ -686,7 +687,7 @@ var Input = function Input(_ref) {
 
 /***/ }),
 
-/***/ 323:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -697,7 +698,7 @@ var Input = function Input(_ref) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/PageTitle.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        flex: 1;\n        flex-direction: row;\n        align-self: stretch;\n        justify-content: center;\n        margin-top: 20px;\n        margin-bottom: 5px;\n    '], ['\n        flex: 1;\n        flex-direction: row;\n        align-self: stretch;\n        justify-content: center;\n        margin-top: 20px;\n        margin-bottom: 5px;\n    ']),
+var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        flex: 1;\n        flex-direction: row;\n        align-self: stretch;\n        justify-content: center;\n        margin-top: 20px;\n        margin-bottom: 5px;\n    '], ['\n        display: flex;\n        flex: 1;\n        flex-direction: row;\n        align-self: stretch;\n        justify-content: center;\n        margin-top: 20px;\n        margin-bottom: 5px;\n    ']),
     _templateObject2 = _taggedTemplateLiteral(['\n        align-self: center;\n        font-size: 18px;\n        font-weight: 600;\n        color: #000;\n    '], ['\n        align-self: center;\n        font-size: 18px;\n        font-weight: 600;\n        color: #000;\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -720,7 +721,7 @@ var PageTitle = function PageTitle(_ref) {
         {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 22
+                lineNumber: 23
             },
             __self: _this
         },
@@ -729,7 +730,7 @@ var PageTitle = function PageTitle(_ref) {
             {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 23
+                    lineNumber: 24
                 },
                 __self: _this
             },
@@ -742,14 +743,14 @@ var PageTitle = function PageTitle(_ref) {
 
 /***/ }),
 
-/***/ 324:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index__ = __webpack_require__(182);
 /* unused harmony export Product */
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/Product.js',
     _this = this;
@@ -901,7 +902,7 @@ var Product = function Product(_ref) {
 
 /***/ }),
 
-/***/ 325:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -944,11 +945,11 @@ var Spinner = function Spinner(_ref) {
 
 /***/ }),
 
-/***/ 326:
+/***/ 299:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase__ = __webpack_require__(534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase__ = __webpack_require__(507);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_firebase__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getLogin; });
 /* unused harmony export getUser */
@@ -964,7 +965,7 @@ var getUser = function getUser() {
 
 /***/ }),
 
-/***/ 327:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -973,13 +974,13 @@ var SELECT_SECTION = 'SELECT_SECTION';
 
 /***/ }),
 
-/***/ 328:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(247);
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/scenes/About/index.web.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1030,12 +1031,12 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
-/***/ 329:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_json__ = __webpack_require__(726);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_json__ = __webpack_require__(674);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__mock_json__);
 
 
@@ -1060,12 +1061,12 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
-/***/ 330:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_Firebase_user_getters__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_Firebase_user_getters__ = __webpack_require__(299);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return saveField; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return loginStart; });
 /* unused harmony export loginProcess */
@@ -1123,15 +1124,15 @@ var resetScene = function resetScene() {
 
 /***/ }),
 
-/***/ 331:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_web__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_web__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(303);
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/scenes/Login/index.web.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1314,12 +1315,12 @@ var mapDispatchToProps = { saveField: saveField, loginStart: loginStart };
 
 /***/ }),
 
-/***/ 332:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__initialState_json__ = __webpack_require__(727);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__initialState_json__ = __webpack_require__(675);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__initialState_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__initialState_json__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1356,13 +1357,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ 333:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_apollo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_apollo__);
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/scenes/ProductList/index.web.js';
 
@@ -1419,7 +1420,7 @@ var ProductList = function (_Component) {
 
 /***/ }),
 
-/***/ 334:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1442,12 +1443,12 @@ var RESET_SCENE = 'RESET_SCENE';
 
 /***/ }),
 
-/***/ 335:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__initialState_json__ = __webpack_require__(728);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__initialState_json__ = __webpack_require__(676);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__initialState_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__initialState_json__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1486,7 +1487,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ 726:
+/***/ 674:
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -1524,7 +1525,7 @@ module.exports = [
 
 /***/ }),
 
-/***/ 727:
+/***/ 675:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1538,7 +1539,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 728:
+/***/ 676:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1554,14 +1555,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 729:
+/***/ 677:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(297);
-module.exports = __webpack_require__(296);
+__webpack_require__(270);
+module.exports = __webpack_require__(269);
 
 
 /***/ })
 
-},[729]);
+},[677]);
 //# sourceMappingURL=client.js.map
