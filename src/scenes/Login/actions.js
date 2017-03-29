@@ -1,4 +1,3 @@
-import { Actions } from 'react-native-router-flux'
 import * as consts from './constants'
 import { getLogin } from '../../logic/Firebase/user.getters'
 
@@ -17,9 +16,10 @@ export const loginProcess = ({ email, password }) => dispatch => {
 
 export const loginSuccess = payload => dispatch => {
     dispatch({ type: consts.LOGIN_SUCCESS, payload })
-    Actions.main()
 }
 
 export const loginFailed = payload => ({ type: consts.LOGIN_FAILED, payload })
 
 export const loaderStart = () => ({ type: consts.LOADER_START })
+
+export const resetScene = () => dispatch => dispatch({ type: consts.RESET_SCENE })

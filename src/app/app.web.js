@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apollo'
-import store from './store'
-import ProductList from '../scenes/ProductList/ProductList.web'
+import { ConnectedRouter } from 'react-router-redux'
+import store, { history } from './store/web'
+import RouterComponent from './routers/web'
 
 
 const client = new ApolloClient({
@@ -20,9 +21,11 @@ class UniversalApp extends Component {
   render() {
     return (
       <ApolloProvider store={store} client={client}>
-        <div style={{ flex: 1 }}>
-          <ProductList />
-        </div>
+
+          <div style={{ flex: 1 }}>
+            <RouterComponent />
+          </div>
+
       </ApolloProvider>
     )
   }

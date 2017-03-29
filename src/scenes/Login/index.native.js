@@ -7,6 +7,15 @@ import * as actions from './actions'
 
 class Login extends Component {
 
+    componentWillReceiveProps() {
+        const { login, resetScene } = this.props
+
+        if (login.changeScene) {
+            Actions.main()
+            resetScene()
+        }
+    }
+
     renderButton() {
         const { login, loginStart } = this.props
 
@@ -64,9 +73,9 @@ class Login extends Component {
     }
 }
 
-const { saveField, loginStart } = actions
+const { saveField, loginStart, resetScene } = actions
 const mapStateToProps = ({ login }) => ({ login })
-const mapDispatchToProps = { saveField, loginStart }
+const mapDispatchToProps = { saveField, loginStart, resetScene }
 
 
 export default connect(

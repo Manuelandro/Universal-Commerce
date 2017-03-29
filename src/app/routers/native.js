@@ -1,7 +1,7 @@
 import React from 'react'
 import { Actions, Scene, Router } from 'react-native-router-flux'
-import * as comps from '../scenes/'
-import * as icons from '../scenes/icons'
+import * as comps from '../../scenes/'
+import * as icons from '../../scenes/icons'
 
 
 const scenes = Actions.create(

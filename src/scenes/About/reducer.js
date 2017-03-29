@@ -1,5 +1,5 @@
 import { SELECT_SECTION } from './constants'
-import data from './AboutList.json'
+import data from './mock.json'
 
 
 export default (state = data, { type, payload }) => {

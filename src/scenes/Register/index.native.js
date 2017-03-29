@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
 import { Card, CardSection, Button, Input, Spinner } from '../../components/native'
 import * as actions from './actions'
 
 class Register extends Component {
+
+    componentWillReceiveProps() {
+        const { register, resetScene } = this.props
+
+        if (register.changeScene) {
+            Actions.main()
+            resetScene()
+        }
+    }
+
     renderButton() {
         const { register, registerStart } = this.props
 
@@ -72,10 +83,10 @@ class Register extends Component {
 }
 
 
-const { saveField, registerStart } = actions
+const { saveField, registerStart, resetScene } = actions
 
 const mapStateToProps = ({ register }) => ({ register })
-const mapDispatchToProps = { saveField, registerStart }
+const mapDispatchToProps = { saveField, registerStart, resetScene }
 
 
 export default connect(

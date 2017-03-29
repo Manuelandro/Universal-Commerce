@@ -3,5 +3,6 @@
     "password": "",
     "error": "",
     "loading": false,
-    "user": null
+    "user": null,
+    "changeScene": false
 }

@@ -1,0 +1,44 @@
+/* global window:false */
+import { browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
+import { createBrowserHistory } from 'history'
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import reducers from '../reducers'
+
+const initialState = {}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const theReducer = combineReducers({
+    ...reducers,
+    routing: routerReducer
+})
+
+const enhancer = composeEnhancers(
+    applyMiddleware(
+        thunk,
+        routerMiddleware(createBrowserHistory())
+    )
+)
+
+const store = createStore(
+    theReducer,
+    initialState,
+    enhancer
+)
+
+// https://github.com/reactjs/react-router-redux/issues/442
+const history = syncHistoryWithStore(
+    browserHistory,
+    store
+)
+
+if (module.hot) {
+    module.hot.accept('./reducers', () => {
+      store.replaceReducer(require('./reducers').default)
+    })
+}
+
+
+export default store
+export { history }

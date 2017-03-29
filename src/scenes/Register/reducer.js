@@ -1,5 +1,5 @@
 import * as consts from './constants'
-import initialState from './RegisterState.json'
+import initialState from './initialState.json'
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
@@ -14,9 +14,11 @@ export default (state = initialState, { type, payload }) => {
         case consts.REGISTER_PROCESS:
             return { ...state }
         case consts.REGISTER_SUCCESS:
-            return { ...state }
+            return { ...state, changeScene: true }
         case consts.REGISTER_FAILED:
-            return { ...state }
+            return { ...state, changeScene: false }
+        case consts.RESET_SCENE:
+            return { ...state, changeScene: false }
         default:
             return { ...state }
     }

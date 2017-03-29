@@ -1,4 +1,3 @@
-import { Actions } from 'react-native-router-flux'
 import * as consts from './constants'
 import { registerUser, createUser } from '../../logic/Firebase/user.setters'
 
@@ -24,10 +23,11 @@ export const registerUserInfo = (user, payload) => dispatch => {
         .catch(error => dispatch(registerFailed(error)))
 }
 
-export const registerSuccess = payload => dispatch => {
+export const registerSuccess = payload => dispatch =>
     dispatch({ type: consts.REGISTER_SUCCESS, payload })
-    Actions.main()
-}
 
 export const registerFailed = payload => dispatch =>
     dispatch({ type: consts.REGISTER_FAILED, payload })
+
+export const resetScene = () => dispatch =>
+    dispatch({ type: consts.RESET_SCENE })
