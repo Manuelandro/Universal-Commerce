@@ -1,12 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
-const Button = ({ onPress, children }) =>
-    <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
-        <Text style={styles.buttonTextStyle}>{children}</Text>
-    </TouchableOpacity>
-
-const styles = StyleSheet.create({
+const { buttonStyle, buttonTextStyle } = StyleSheet.create({
     buttonStyle: {
         flex: 1,
         alignSelf: 'stretch',
@@ -26,5 +21,12 @@ const styles = StyleSheet.create({
         paddingBottom: 10
     }
 })
+
+
+const Button = ({ onPress, children }) =>
+    <TouchableOpacity style={buttonStyle} onPress={onPress}>
+        <Text style={buttonTextStyle}>{children}</Text>
+    </TouchableOpacity>
+
 
 export { Button }

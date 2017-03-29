@@ -1,17 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const Header = ({ headerText }) => {
-    const { textStyle, viewStyle } = styles
-
-    return (
-        <View style={viewStyle}>
-            <Text style={textStyle}>{headerText}</Text>
-        </View>
-    )
-}
-
-const styles = {
+const { viewStyle, textStyle } = {
     viewStyle: {
         height: 60,
         paddingTop: 15,
@@ -28,5 +18,14 @@ const styles = {
         fontSize: 20
     }
 }
+
+const Header = ({ headerText }) =>
+    (
+        <View style={viewStyle}>
+            <Text style={textStyle}>{headerText}</Text>
+        </View>
+    )
+
+
 
 export { Header }

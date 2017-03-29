@@ -1,13 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
-const PageTitle = ({ children }) =>
-    <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{children}</Text>
-    </View>
-
-
-const styles = StyleSheet.create({
+const { titleContainer, titleText } = StyleSheet.create({
     titleContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -23,5 +17,11 @@ const styles = StyleSheet.create({
         color: '#000'
     }
 })
+
+const PageTitle = ({ children }) =>
+    <View style={titleContainer}>
+        <Text style={titleText}>{children}</Text>
+    </View>
+
 
 export { PageTitle }

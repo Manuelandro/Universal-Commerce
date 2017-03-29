@@ -1,10 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
-const CardSection = ({ children }) =>
-    <View style={styles.containerStyle}>{children}</View>
-
-const styles = StyleSheet.create({
+const { containerStyle } = StyleSheet.create({
     containerStyle: {
         borderBottomWidth: 1,
         borderColor: '#ddd',
@@ -15,5 +12,10 @@ const styles = StyleSheet.create({
         position: 'relative'
     }
 })
+
+const CardSection = ({ children }) =>
+    <View style={containerStyle}>{children}</View>
+
+
 
 export { CardSection }

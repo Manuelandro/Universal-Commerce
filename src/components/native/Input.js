@@ -1,21 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput } from 'react-native'
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize }) =>
-    <View style={styles.containerStyle}>
-        <Text style={styles.labelStyle}>{label}</Text>
-        <TextInput
-            placeholder={placeholder}
-            autoCorrect={false}
-            autoCapitalize={autoCapitalize}
-            secureTextEntry={secureTextEntry}
-            value={value}
-            onChangeText={onChangeText}
-            style={styles.inputStyles}
-        />
-    </View>
-
-const styles = StyleSheet.create({
+const { containerStyle, inputStyles, labelStyle } = StyleSheet.create({
     containerStyle: {
         flex: 1,
         flexDirection: 'row',
@@ -39,5 +25,22 @@ const styles = StyleSheet.create({
         flex: 1
     }
 })
+
+
+
+const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize }) =>
+    <View style={containerStyle}>
+        <Text style={labelStyle}>{label}</Text>
+        <TextInput
+            placeholder={placeholder}
+            autoCorrect={false}
+            autoCapitalize={autoCapitalize}
+            secureTextEntry={secureTextEntry}
+            value={value}
+            onChangeText={onChangeText}
+            style={inputStyles}
+        />
+    </View>
+
 
 export { Input }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/web'
 import * as actions from './actions'
 
 class Login extends Component {
@@ -7,10 +8,14 @@ class Login extends Component {
     renderButton() {
         const { login, loginStart } = this.props
 
+        if (login.loading) {
+            return <Spinner />
+        }
+
         return (
-            <a onClick={() => loginStart(login)}>
+            <Button onPress={() => loginStart(login)}>
                 Login!
-            </a>
+            </Button>
         )
     }
 
@@ -19,35 +24,35 @@ class Login extends Component {
 
         return (
             <div>
-                <div>
-                    <div>
-                        <input
+                <Card>
+                    <CardSection>
+                        <Input
                             label="Email"
                             placeholder="example@email.com"
                             value={login.email}
                             onChangeText={value => saveField({ prop: 'email', value })}
                         />
-                    </div>
-                    <div>
-                        <input
+                    </CardSection>
+                    <CardSection>
+                        <Input
                             label="Password"
                             placeholder="password"
                             secureTextEntry
                             value={login.password}
                             onChangeText={value => saveField({ prop: 'password', value })}
                         />
-                    </div>
+                    </CardSection>
 
-                    <div>
+                    <CardSection>
                         {this.renderButton()}
-                    </div>
+                    </CardSection>
 
-                    <p>{login.error}</p>
+                    <ErrorMsg>{login.error}</ErrorMsg>
 
                     <p>
                         Non hai un account? Registrati
                     </p>
-                </div>
+                </Card>
             </div>
         )
     }
