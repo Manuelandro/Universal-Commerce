@@ -3,6 +3,7 @@ import { Text } from 'react-native'
 import { connect } from 'react-redux'
 import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/native'
 import * as actions from './actions'
+import { navigateTo } from '../../logic/Navigation'
 
 class Login extends Component {
     static navigationOptions = {
@@ -14,8 +15,8 @@ class Login extends Component {
         const { login, resetScene, navigation } = this.props
 
         if (login.changeScene) {
-            navigation.navigate('ProductList')
             resetScene()
+            navigateTo(navigation, 'ProductList')
         }
     }
 

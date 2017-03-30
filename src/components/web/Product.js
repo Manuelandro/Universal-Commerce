@@ -9,15 +9,21 @@ const {
     Cover
 } = {
     ViewHead: styled.div`
+        display: flex;
+        height: 50px;
         flex-direction: column;
         justify-content: space-around;
     `,
     Name: styled.p`
         font-size: 18px;
+        margin: 0;
     `,
-    Brand: styled.p``,
+    Brand: styled.p`
+        margin: 0;
+    `,
     Cover: styled(Image)`
-        width: null;
+        width: auto;
+        margin: 0 auto;
         height: 300px;
         flex: 1;
     `

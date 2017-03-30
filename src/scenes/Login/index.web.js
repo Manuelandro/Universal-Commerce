@@ -3,8 +3,18 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/web'
 import * as actions from './actions'
+import { navigateTo } from '../../logic/Navigation'
 
 class Login extends Component {
+
+    componentWillReceiveProps() {
+        const { login, resetScene, history } = this.props
+
+        if (login.changeScene) {
+            resetScene()
+            navigateTo(history, 'productlist')
+        }
+    }
 
     renderButton() {
         const { login, loginStart } = this.props
@@ -60,9 +70,9 @@ class Login extends Component {
     }
 }
 
-const { saveField, loginStart } = actions
+const { saveField, loginStart, resetScene } = actions
 const mapStateToProps = ({ login }) => ({ login })
-const mapDispatchToProps = { saveField, loginStart }
+const mapDispatchToProps = { saveField, loginStart, resetScene }
 
 
 export default connect(

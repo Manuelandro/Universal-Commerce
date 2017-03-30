@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
-import { gql, graphql } from 'react-apollo'
+import { graphql } from 'react-apollo'
+import { ProductlistQuery } from '../../../web/server/graphql/queries/product'
 import { ScrollView, Spinner, ErrorMsg, Product } from '../../components/web/'
-
-const ProductlistQuery = gql`
-    query Query {
-        products {
-            name
-            small_image
-            brand
-        }
-    }`
 
 class ProductList extends Component {
 
