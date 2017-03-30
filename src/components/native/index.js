@@ -1,6 +1,7 @@
 export * from './Input'
 export * from './Button'
 export * from './PageTitle'
+export * from './ScrollView'
 export * from './Card'
 export * from './CardSection'
 

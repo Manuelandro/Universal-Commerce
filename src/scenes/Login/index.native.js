@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import { ScrollView, Text } from 'react-native'
+import { Text } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
-import { Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/native'
+import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/native'
 import * as actions from './actions'
 
 class Login extends Component {
+    static navigationOptions = {
+        title: 'Login'
+    }
+
 
     componentWillReceiveProps() {
         const { login, resetScene } = this.props
@@ -31,7 +35,7 @@ class Login extends Component {
     }
 
     render() {
-        const { login, saveField } = this.props
+        const { login, saveField, navigation } = this.props
 
         return (
             <ScrollView>
@@ -63,7 +67,7 @@ class Login extends Component {
                     <ErrorMsg>{login.error}</ErrorMsg>
 
                     <Text
-                        onPress={() => Actions.register()}
+                        onPress={() => navigation.navigate('Register')}
                     >
                         Non hai un account? Registrati
                     </Text>

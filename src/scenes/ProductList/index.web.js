@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { gql, graphql } from 'react-apollo'
+import { ScrollView } from '../../components/web/'
 
 const ProductlistQuery = gql`
     query Query {
@@ -16,9 +17,9 @@ class ProductList extends Component {
 
     render() {
         return (
-            <div>
+            <ScrollView>
                 ddd
-            </div>
+            </ScrollView>
         )
     }
 }

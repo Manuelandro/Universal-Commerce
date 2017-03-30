@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/web'
+import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/web'
 import * as actions from './actions'
 
 class Login extends Component {
@@ -23,7 +23,7 @@ class Login extends Component {
         const { login, saveField } = this.props
 
         return (
-            <div>
+            <ScrollView>
                 <Card>
                     <CardSection>
                         <Input
@@ -53,7 +53,7 @@ class Login extends Component {
                         Non hai un account? Registrati
                     </p>
                 </Card>
-            </div>
+            </ScrollView>
         )
     }
 }

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
-import { Card, CardSection, Button, Input, Spinner } from '../../components/native'
+import { ScrollView, Card, CardSection, Button, Input, Spinner } from '../../components/native'
 import * as actions from './actions'
 
 class Register extends Component {
+    static navigationOptions = {
+        title: 'Register'
+    }
 
     componentWillReceiveProps() {
         const { register, resetScene } = this.props

@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Provider } from 'react-redux'
 import store from './store/native'
-import { firebaseInit } from '../logic/Firebase/init'
 import RouterComponent from './routers/native'
+import { firebaseInit } from '../logic/Firebase/init'
 import { Button, Spinner } from '../components/native'
 
 class UniversalApp extends Component {
