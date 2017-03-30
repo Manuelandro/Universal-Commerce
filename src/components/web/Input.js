@@ -30,8 +30,9 @@ const { View, Text, TextInput } = {
 
 
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoCapitalize }) => {
+const Input = ({ label, value, onChange, placeholder, secureTextEntry, autoCapitalize }) => {
     const type = (!secureTextEntry) ? 'text' : 'password'
+    const handleChange = e => onChange(e.target.value)
 
     return (
         <View>
@@ -41,7 +42,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, autoC
                 placeholder={placeholder}
                 autoCapitalize={autoCapitalize}
                 value={value}
-                onChange={onChangeText}
+                onChange={handleChange}
             />
         </View>
     )

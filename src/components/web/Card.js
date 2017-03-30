@@ -3,9 +3,8 @@ import styled from 'styled-components'
 
 const { View } = {
     View: styled.div`
-        border-width: 1px;
+        border: 1px solid #ddd;
         border-radius: 2px;
-        border-color: #ddd;
         border-bottom-width: 0;
         box-shadow: 0, 2px 9px #000;
         margin-left: 5px;

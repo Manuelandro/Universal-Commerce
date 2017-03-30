@@ -30,7 +30,7 @@ class Login extends Component {
                             label="Email"
                             placeholder="example@email.com"
                             value={login.email}
-                            onChangeText={value => saveField({ prop: 'email', value })}
+                            onChange={(value) => saveField({ prop: 'email', value })}
                         />
                     </CardSection>
                     <CardSection>
@@ -39,7 +39,7 @@ class Login extends Component {
                             placeholder="password"
                             secureTextEntry
                             value={login.password}
-                            onChangeText={value => saveField({ prop: 'password', value })}
+                            onChange={value => saveField({ prop: 'password', value })}
                         />
                     </CardSection>
 

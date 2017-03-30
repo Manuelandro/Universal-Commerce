@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const { button, Text } = {
-    button: styled.button`
+const { TouchableOpacity, Text } = {
+    TouchableOpacity: styled.button`
         display: flex;
         flex: 1;
         align-self: stretch;
         background-color: #fff;
+        border: 1px solid #007788;
         border-radius: 4px;
-        border-width: 1px;
-        border-color: #007788;
         margin-left: 5px;
         margin-right: 5px;
     `,
@@ -25,9 +24,9 @@ const { button, Text } = {
 
 
 const Button = ({ onPress, children }) =>
-    <button onClick={onPress}>
-        <Text >{children}</Text>
-    </button>
+    <TouchableOpacity onClick={onPress}>
+        <Text>{children}</Text>
+    </TouchableOpacity>
 
 
 

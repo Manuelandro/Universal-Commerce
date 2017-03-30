@@ -325,7 +325,7 @@ if (false) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/Button.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border-radius: 4px;\n        border-width: 1px;\n        border-color: #007788;\n        margin-left: 5px;\n        margin-right: 5px;\n    '], ['\n        display: flex;\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border-radius: 4px;\n        border-width: 1px;\n        border-color: #007788;\n        margin-left: 5px;\n        margin-right: 5px;\n    ']),
+var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border: 1px solid #007788;\n        border-radius: 4px;\n        margin-left: 5px;\n        margin-right: 5px;\n    '], ['\n        display: flex;\n        flex: 1;\n        align-self: stretch;\n        background-color: #fff;\n        border: 1px solid #007788;\n        border-radius: 4px;\n        margin-left: 5px;\n        margin-right: 5px;\n    ']),
     _templateObject2 = _taggedTemplateLiteral(['\n        align-self: center;\n        color: #007788;\n        font-size: 16px;\n        font-weight: 600;\n        padding-top: 10px;\n        padding-bottom: 10px;\n    '], ['\n        align-self: center;\n        color: #007788;\n        font-size: 16px;\n        font-weight: 600;\n        padding-top: 10px;\n        padding-bottom: 10px;\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -333,22 +333,22 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 
 
-var _button$Text = {
-    button: __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].button(_templateObject),
+var _CTA$Text = {
+    CTA: __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].button(_templateObject),
     Text: __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].span(_templateObject2)
 },
-    button = _button$Text.button,
-    Text = _button$Text.Text;
+    CTA = _CTA$Text.CTA,
+    Text = _CTA$Text.Text;
 
 
 var Button = function Button(_ref) {
     var onPress = _ref.onPress,
         children = _ref.children;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'button',
+        CTA,
         { onClick: onPress, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 28
+                lineNumber: 27
             },
             __self: _this
         },
@@ -357,7 +357,7 @@ var Button = function Button(_ref) {
             {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 29
+                    lineNumber: 28
                 },
                 __self: _this
             },
@@ -381,7 +381,7 @@ var Button = function Button(_ref) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/Card.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        border-width: 1px;\n        border-radius: 2px;\n        border-color: #ddd;\n        border-bottom-width: 0;\n        box-shadow: 0, 2px 9px #000;\n        margin-left: 5px;\n        margin-right: 5px;\n        margin-top: 10px;\n    '], ['\n        border-width: 1px;\n        border-radius: 2px;\n        border-color: #ddd;\n        border-bottom-width: 0;\n        box-shadow: 0, 2px 9px #000;\n        margin-left: 5px;\n        margin-right: 5px;\n        margin-top: 10px;\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n        border: 1px solid #ddd;\n        border-radius: 2px;\n        border-bottom-width: 0;\n        box-shadow: 0, 2px 9px #000;\n        margin-left: 5px;\n        margin-right: 5px;\n        margin-top: 10px;\n    '], ['\n        border: 1px solid #ddd;\n        border-radius: 2px;\n        border-bottom-width: 0;\n        box-shadow: 0, 2px 9px #000;\n        margin-left: 5px;\n        margin-right: 5px;\n        margin-top: 10px;\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -401,7 +401,7 @@ var Card = function Card(_ref) {
         {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 18
+                lineNumber: 17
             },
             __self: _this
         },
@@ -424,7 +424,7 @@ var Card = function Card(_ref) {
 var _jsxFileName = '/Applications/MAMP/htdocs/UniversalApp/src/components/web/CardSection.js',
     _this = this;
 
-var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        border-bottom-width: 1px;\n        border-color: #ddd;\n        padding: 5px,\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    '], ['\n        display: flex;\n        border-bottom-width: 1px;\n        border-color: #ddd;\n        padding: 5px,\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n        display: flex;\n        border-bottom: 1px solid #ddd;\n        padding: 5px;\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    '], ['\n        display: flex;\n        border-bottom: 1px solid #ddd;\n        padding: 5px;\n        background-color: #fff;\n        justify-content: flex-start;\n        flex-direction: row;\n        position: relative;\n    ']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -444,7 +444,7 @@ var CardSection = function CardSection(_ref) {
         {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 18
+                lineNumber: 17
             },
             __self: _this
         },
@@ -641,19 +641,22 @@ var _View$Text$TextInput = {
 var Input = function Input(_ref) {
     var label = _ref.label,
         value = _ref.value,
-        onChangeText = _ref.onChangeText,
+        onChange = _ref.onChange,
         placeholder = _ref.placeholder,
         secureTextEntry = _ref.secureTextEntry,
         autoCapitalize = _ref.autoCapitalize;
 
     var type = !secureTextEntry ? 'text' : 'password';
+    var handleChange = function handleChange(e) {
+        return onChange(e.target.value);
+    };
 
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         View,
         {
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 37
+                lineNumber: 38
             },
             __self: _this
         },
@@ -662,7 +665,7 @@ var Input = function Input(_ref) {
             {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 38
+                    lineNumber: 39
                 },
                 __self: _this
             },
@@ -673,10 +676,10 @@ var Input = function Input(_ref) {
             placeholder: placeholder,
             autoCapitalize: autoCapitalize,
             value: value,
-            onChange: onChangeText,
+            onChange: handleChange,
             __source: {
                 fileName: _jsxFileName,
-                lineNumber: 39
+                lineNumber: 40
             },
             __self: _this
         })
@@ -1227,7 +1230,7 @@ var Login = function (_Component) {
                             label: 'Email',
                             placeholder: 'example@email.com',
                             value: login.email,
-                            onChangeText: function onChangeText(value) {
+                            onChange: function onChange(value) {
                                 return saveField({ prop: 'email', value: value });
                             },
                             __source: {
@@ -1251,7 +1254,7 @@ var Login = function (_Component) {
                             placeholder: 'password',
                             secureTextEntry: true,
                             value: login.password,
-                            onChangeText: function onChangeText(value) {
+                            onChange: function onChange(value) {
                                 return saveField({ prop: 'password', value: value });
                             },
                             __source: {

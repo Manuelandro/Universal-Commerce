@@ -10,7 +10,7 @@ const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('-
 
 const config = {
     output: {
-        path: path.resolve(__dirname, './client/public/')
+        path: path.resolve(__dirname, '../web/client/public/')
     },
     module: {
         rules: [
@@ -117,7 +117,7 @@ const clientConfig = {
         }),
         // https://github.com/sporto/assets-webpack-plugin#options
         new AssetsPlugin({
-            path: path.resolve(__dirname, './build'),
+            path: path.resolve(__dirname, '../web/build'),
             filename: 'assets.json',
             prettyPrint: true,
         }),
