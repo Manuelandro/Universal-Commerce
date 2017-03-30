@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text } from 'react-native'
 import { connect } from 'react-redux'
-import { Actions } from 'react-native-router-flux'
 import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/native'
 import * as actions from './actions'
 
@@ -12,10 +11,10 @@ class Login extends Component {
 
 
     componentWillReceiveProps() {
-        const { login, resetScene } = this.props
+        const { login, resetScene, navigation } = this.props
 
         if (login.changeScene) {
-            Actions.main()
+            navigation.navigate('ProductList')
             resetScene()
         }
     }
@@ -70,6 +69,12 @@ class Login extends Component {
                         onPress={() => navigation.navigate('Register')}
                     >
                         Non hai un account? Registrati
+                    </Text>
+
+                    <Text
+                        onPress={() => navigation.navigate('ProductList')}
+                    >
+                        Product List
                     </Text>
                 </Card>
             </ScrollView>

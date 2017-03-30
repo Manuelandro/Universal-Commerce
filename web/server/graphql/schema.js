@@ -37,6 +37,7 @@ const schema = `
     description: String
     brand: String
     region: String
+    small_image: String
     category: Category
     }
 

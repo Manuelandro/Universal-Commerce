@@ -1,32 +1,41 @@
-import axios from 'axios'
 import React, { Component } from 'react'
-import { ScrollView, Product } from '../../components/native'
+import { gql, graphql } from 'react-apollo'
+import { ScrollView, Product, Spinner, ErrorMsg } from '../../components/native'
+
+const ProductlistQuery = gql`
+    query Query {
+        products {
+            name
+            small_image
+            brand
+        }
+    }`
 
 class ProductList extends Component {
-    constructor() {
-        super()
-        this.state = { albums: [] }
-    }
 
-    componentWillMount() {
-        axios('https://rallycoding.herokuapp.com/api/music_albums')
-            .then((res) => JSON.stringify(res))
-            .then((res) => this.setState({ albums: res.data }))
-    }
+    renderProducts() {
+        const { data } = this.props
 
-    renderAlbums() {
-        return this.state.albums.map(album =>
-            <Product album={album} key={album.title} />
+        if (data.loading) {
+            return <Spinner />
+        }
+
+        if (typeof data.error !== 'undefined') {
+            return <ErrorMsg>Somenthing went wrong</ErrorMsg>
+        }
+
+        return data.products.map(val =>
+            <Product product={val} key={val.name} />
         )
     }
 
     render() {
         return (
             <ScrollView>
-                {this.renderAlbums()}
+                {this.renderProducts()}
             </ScrollView>
         )
     }
 }
 
-export default ProductList
+export default graphql(ProductlistQuery)(ProductList)

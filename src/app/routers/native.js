@@ -4,7 +4,6 @@ import Login from '../../scenes/Login/index.native'
 import Register from '../../scenes/Register/index.native'
 import ProductList from '../../scenes/ProductList/index.native'
 import About from '../../scenes/About/index.native'
-// import * as icons from '../../scenes/icons'
 
 
 const RouterComponent = StackNavigator({

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/web'
 import * as actions from './actions'
 
@@ -52,6 +53,7 @@ class Login extends Component {
                     <p>
                         Non hai un account? Registrati
                     </p>
+                    <Link to="/productlist">Product List</Link>
                 </Card>
             </ScrollView>
         )

@@ -4,30 +4,18 @@ import { Card, CardSection, Button, Image } from './index'
 
 const {
     ViewHead,
-    Album,
-    Artist,
-    ViewThumb,
-    Thumb,
+    Name,
+    Brand,
     Cover
 } = {
     ViewHead: styled.div`
         flex-direction: column;
         justify-content: space-around;
     `,
-    Album: styled.p`
+    Name: styled.p`
         font-size: 18px;
     `,
-    Artist: styled.p``,
-    ViewThumb: styled.div`
-        justify-content: center;
-        align-items: center;
-        margin-right: 10px;
-        marginleft: 10px;
-    `,
-    Thumb: styled(Image)`
-        height: 50px;
-        width: 50px;
-    `,
+    Brand: styled.p``,
     Cover: styled(Image)`
         width: null;
         height: 300px;
@@ -36,19 +24,16 @@ const {
 }
 
 
-const Product = ({ album: { title, artist, thumbnail_image, image } }) =>
+const Product = ({ product: { name, brand, small_image } }) =>
     <Card>
         <CardSection>
-            <ViewThumb>
-                <Thumb source={{ uri: thumbnail_image }} />
-            </ViewThumb>
             <ViewHead>
-                <Album>{title}</Album>
-                <Artist>{artist}</Artist>
+                <Name>{name}</Name>
+                <Brand>{brand}</Brand>
             </ViewHead>
         </CardSection>
         <CardSection>
-            <Cover source={{ uri: image }} />
+            <Cover source={{ uri: small_image }} />
         </CardSection>
         <CardSection>
             <Button onPress={() => console.log('jejej')}>

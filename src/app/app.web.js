@@ -9,7 +9,7 @@ import { firebaseInit } from '../logic/Firebase/init'
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3000/graphql',
+    uri: 'http://localhost:3001/graphql',
   })
 })
 

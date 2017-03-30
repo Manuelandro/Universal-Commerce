@@ -13,7 +13,7 @@ const { TouchableOpacity, Text } = {
         margin-right: 5px;
     `,
     Text: styled.span`
-        align-self: center;
+        flex: 1;
         color: #007788;
         font-size: 16px;
         font-weight: 600;
