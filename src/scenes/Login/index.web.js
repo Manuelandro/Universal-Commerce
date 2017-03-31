@@ -63,7 +63,7 @@ class Login extends Component {
                     <p>
                         Non hai un account? Registrati
                     </p>
-                    <Link to="/productlist">Product List</Link>
+                    <Link to="/la-macelleria">La Macelleria</Link>
                 </Card>
             </ScrollView>
         )

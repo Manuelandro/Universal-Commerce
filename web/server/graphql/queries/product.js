@@ -1,8 +1,8 @@
 import { gql } from 'react-apollo'
 
 export const ProductlistQuery = gql`
-    query Query {
-        products {
+    query getProductsFromCategory($category: Int!) {
+        products(category: $category) {
             name
             small_image
             brand

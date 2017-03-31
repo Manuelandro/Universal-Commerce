@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
 import { ProductlistQuery } from '../../../web/server/graphql/queries/product'
 import { ScrollView, Spinner, ErrorMsg, Product } from '../../components/web/'
@@ -30,4 +31,21 @@ class ProductList extends Component {
     }
 }
 
-export default graphql(ProductlistQuery)(ProductList)
+const withQuery = graphql(
+    ProductlistQuery, {
+        options: (ownProps) => ({
+            variables: {
+                category: 1
+            }
+        })
+    }
+)
+
+
+export default withQuery(
+    withRouter(ProductList)
+)
+
+
+
+
