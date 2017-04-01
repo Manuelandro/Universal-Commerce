@@ -3,10 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build:web": "babel-node webpack/builder",
-    "server": "babel-node web/server/index.js",
-    "run:web": "npm run build:web && npm run server",
+    "build:server": "webpack --config webpack/webpack.config.server.js",
+    "build:client": "webpack --watch --config webpack/webpack.config.client.js",
+    "watch:server": "babel-node build.web/server.js",
+    "build:dev": "NODE_ENV=development concurrently -c blue,cyan,magenta \"npm run build:server && sleep 2 && npm run watch:server\" \"npm run build:client\"",
+    "run:web": "NODE_ENV=development npm run build:client && npm run watch:server",
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "lint": "eslint src",
     "test": "jest"
   },
   "dependencies": {
@@ -19,6 +22,7 @@
     "firebase": "^3.6.6",
     "graphql": "^0.9.1",
     "graphql-server-express": "^0.6.0",
+    "graphql-tag": "^2.0.0",
     "graphql-tools": "^0.10.1",
     "history": "^4.5.1",
     "localforage": "^1.4.3",

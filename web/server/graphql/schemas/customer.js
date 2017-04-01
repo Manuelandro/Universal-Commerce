@@ -18,7 +18,7 @@ export const customerSchema = `
     type Address {
     entity_id: ID!
     customer: [Customer]
-    isActive: Bool
+    isActive: Boolean
     firstname: String
     lastname: String
     street: String
@@ -29,8 +29,8 @@ export const customerSchema = `
     country: String
     telephone: String
     vat: String
-    isShipping: Bool
-    isBilling: Bool
+    isShipping: Boolean
+    isBilling: Boolean
     }
 `
 

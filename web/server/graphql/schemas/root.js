@@ -11,8 +11,13 @@ export const rootSchema = `
     product(entity_id: Int!): Product
     }
 
+    type Mutation {
+    saveCustomer: Customer
+    }
+
     schema {
     query: Query
+    mutation: Mutation
     }
 `
 

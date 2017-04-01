@@ -14,29 +14,34 @@ app.use(cookieParser())
 app.use('/graphql', (req, res, next) => {
     next()
 })
-app.use('/graphql',
-    graphqlExpress(req => ({
+app.use('/graphql', graphqlExpress(req => {
+    const query = req.query.query || req.body.query
+
+    if (query && query.length > 2000) {
+      // None of our app's queries are this long
+      // Probably indicates someone trying to send an overly expensive query
+      throw new Error('Query too large.')
+    }
+
+    return {
         schema: Schema,
         context: {
             posts: [1, 3, 4, 6]
-        }
-    }))
-)
+        },
+    }
+}))
+
 app.use('/graphiql',
     graphiqlExpress({
-        endpointURL: '/graphql',
-        query: `{
-            posts {
-
-            }
-        }`
+        endpointURL: '/graphql'
     })
 )
-app.use(express.static(path.resolve(__dirname, '../../web/client/public/')))
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../web/client/index.html'))
-})
 
+app.use(express.static(path.resolve(__dirname, '../web/client/public/')))
+
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../web/client/index.html'))
+})
 
 app.listen(port, () => console.log(
     `Server is now running on http://localhost:${port}`

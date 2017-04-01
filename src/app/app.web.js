@@ -1,17 +1,13 @@
 import firebase from 'firebase'
 import React, { Component } from 'react'
-import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apollo'
+import { ApolloProvider } from 'react-apollo'
 import { ConnectedRouter } from 'react-router-redux'
-import store, { history } from './store/web'
+import store, { history, client } from './store/web'
 import RouterComponent from './routers/web'
 import { firebaseInit } from '../logic/Firebase/init'
 
 
-const client = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3001/graphql',
-  })
-})
+
 
 class UniversalApp extends Component {
   constructor() {

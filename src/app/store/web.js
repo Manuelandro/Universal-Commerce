@@ -3,6 +3,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { createBrowserHistory } from 'history'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { persistStore, autoRehydrate } from 'redux-persist'
+import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import localForage from 'localforage'
 import thunk from 'redux-thunk'
 import reducers from '../reducers'
@@ -11,16 +12,24 @@ const initialState = {}
 const history = createBrowserHistory()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+const client = new ApolloClient({
+    networkInterface: createNetworkInterface({
+        uri: 'http://localhost:3001/graphql',
+    })
+})
+
 const theReducer = combineReducers({
     ...reducers,
-    routing: routerReducer
+    routing: routerReducer,
+    apollo: client.reducer()
 })
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux
 const enhancer = composeEnhancers(
     applyMiddleware(
         thunk,
-        routerMiddleware(history)
+        routerMiddleware(history),
+        client.middleware()
     ),
     autoRehydrate()
 )
@@ -45,4 +54,4 @@ if (module.hot) {
 
 
 export default store
-export { history }
+export { history, client }

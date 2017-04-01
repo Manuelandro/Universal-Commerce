@@ -2,30 +2,14 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
 import { ProductlistQuery } from '../../../web/server/graphql/queries/product'
-import { ScrollView, Spinner, ErrorMsg, Product } from '../../components/web/'
+import ProductList from './component.web'
+import { ScrollView } from '../../components/web/'
 
-class ProductList extends Component {
-
-    renderProducts() {
-        const { data } = this.props
-
-        if (data.loading) {
-            return <Spinner />
-        }
-
-        if (typeof data.error !== 'undefined') {
-            return <ErrorMsg>Somenthing went wrong</ErrorMsg>
-        }
-
-        return data.products.map(val =>
-            <Product product={val} key={val.name} />
-        )
-    }
-
+class ProductListWithData extends Component {
     render() {
         return (
             <ScrollView>
-                {this.renderProducts()}
+                <ProductList {...this.props} />
             </ScrollView>
         )
     }
@@ -33,7 +17,7 @@ class ProductList extends Component {
 
 const withQuery = graphql(
     ProductlistQuery, {
-        options: (ownProps) => ({
+        options: () => ({
             variables: {
                 category: 1
             }
@@ -41,11 +25,6 @@ const withQuery = graphql(
     }
 )
 
-
 export default withQuery(
-    withRouter(ProductList)
+    withRouter(ProductListWithData)
 )
-
-
-
-

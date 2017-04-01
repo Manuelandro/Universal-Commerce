@@ -1,16 +1,19 @@
-import path from 'path'
-import webpack from 'webpack'
-import AssetsPlugin from 'assets-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-
-const isDebug = !process.argv.includes('--release');
-const isVerbose = process.argv.includes('--verbose');
-const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('--analyse');
+const path = require('path')
+const webpack = require('webpack')
+const isDebug = !process.argv.includes('--release')
+const isVerbose = process.argv.includes('--verbose')
 
 
-const config = {
+module.exports = {
+    name: 'client',
+    target: 'web',
+    entry: {
+        client: ['babel-polyfill', './index.web.js']
+    },
     output: {
-        path: path.resolve(__dirname, '../web/client/public/')
+        path: path.resolve(__dirname, '../web/client/public/'),
+        filename: isDebug ? '[name].js' : '[name].[chunkhash:8].js',
+        chunkFilename: isDebug ? '[name].chunk.js' : '[name].[chunkhash:8].chunk.js',
     },
     module: {
         rules: [
@@ -63,6 +66,11 @@ const config = {
                 ],
             },
             {
+                test: /\.(graphql|gql)$/,
+                exclude: /node_modules/,
+                loader: 'graphql-tag/loader',
+            },
+            {
                 test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
                 loader: 'file-loader',
                 query: {
@@ -79,54 +87,13 @@ const config = {
             },
         ],
     },
-    bail: !isDebug,
-    cache: isDebug,
-    stats: {
-        colors: true,
-        reasons: isDebug,
-        hash: isVerbose,
-        version: isVerbose,
-        timings: true,
-        chunks: isVerbose,
-        chunkModules: isVerbose,
-        cached: isVerbose,
-        cachedAssets: isVerbose,
-    }
-}
-
-
-const clientConfig = {
-    ...config,
-
-    name: 'client',
-    target: 'web',
-    entry: {
-        client: ['babel-polyfill', './index.web.js']
-    },
-    output: {
-        ...config.output,
-        filename: isDebug ? '[name].js' : '[name].[chunkhash:8].js',
-        chunkFilename: isDebug ? '[name].chunk.js' : '[name].[chunkhash:8].chunk.js',
-    },
     plugins: [
         // https://webpack.github.io/docs/list-of-plugins.html#defineplugin
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV' : isDebug ? '"development"' : '"production"',
+            'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
             'process.env.BROWSER': true,
             __DEV__: isDebug,
         }),
-        // https://github.com/sporto/assets-webpack-plugin#options
-        new AssetsPlugin({
-            path: path.resolve(__dirname, '../web/build'),
-            filename: 'assets.json',
-            prettyPrint: true,
-        }),
-        // http://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: module => /node_modules/.test(module.resource),
-        }),
-
         ...isDebug ? [] : [
             // https://github.com/mishoo/UglifyJS2#compressor-options
             new webpack.optimize.UglifyJsPlugin({
@@ -146,12 +113,22 @@ const clientConfig = {
                 },
             }),
         ],
-        // https://github.com/th0r/webpack-bundle-analyzer
-        ...isAnalyze ? [new BundleAnalyzerPlugin()] : [],
-    ],
-
+    ].filter(Boolean),
     // http://webpack.github.io/docs/configuration.html#devtool
     devtool: isDebug ? 'cheap-module-source-map' : false,
+    bail: !isDebug,
+    cache: isDebug,
+    stats: {
+        colors: true,
+        reasons: isDebug,
+        hash: isVerbose,
+        version: isVerbose,
+        timings: true,
+        chunks: isVerbose,
+        chunkModules: isVerbose,
+        cached: isVerbose,
+        cachedAssets: isVerbose,
+    },
     // https://github.com/webpack/node-libs-browser/tree/master/mock
     node: {
         fs: 'empty',
@@ -159,5 +136,3 @@ const clientConfig = {
         tls: 'empty',
     },
 }
-
-export { config, clientConfig }

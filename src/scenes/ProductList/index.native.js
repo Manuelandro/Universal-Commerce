@@ -1,33 +1,27 @@
 import React, { Component } from 'react'
+import { RefreshControl } from 'react-native'
 import { graphql } from 'react-apollo'
 import { ProductlistQuery } from '../../../web/server/graphql/queries/product'
-import { ScrollView, Product, Spinner, ErrorMsg } from '../../components/native'
+import ProductList from './component.native'
+import { ScrollView } from '../../components/native'
 
-class ProductList extends Component {
-
-    renderProducts() {
+class ProductListWithData extends Component {
+    render() {
         const { data } = this.props
 
-        if (data.loading) {
-            return <Spinner />
-        }
-
-        if (typeof data.error !== 'undefined') {
-            return <ErrorMsg>Somenthing went wrong</ErrorMsg>
-        }
-
-        return data.products.map(val =>
-            <Product product={val} key={val.name} />
-        )
-    }
-
-    render() {
         return (
-            <ScrollView>
-                {this.renderProducts()}
+            <ScrollView
+                refreshControl={ // http://dev.apollodata.com/react/simple-example.html
+                    <RefreshControl
+                        refreshing={data.networkStatus === 4}
+                        onRefresh={data.refetch}
+                    />
+                }
+            >
+                <ProductList />
             </ScrollView>
         )
     }
 }
 
-export default graphql(ProductlistQuery)(ProductList)
+export default graphql(ProductlistQuery)(ProductListWithData)
