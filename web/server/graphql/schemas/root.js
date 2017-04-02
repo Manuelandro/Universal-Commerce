@@ -1,8 +1,9 @@
-import { Customers, Orders, Categories, Products } from '../../mongodb/connectors'
+import { Core, Customers, Orders, Categories, Products } from '../../mongodb/connectors'
 
 export const rootSchema = `
     # the schema allows the following query:
     type Query {
+    core: Core
     orders: [Order]
     customers: [Customer]
     categories: [Category]
@@ -23,6 +24,9 @@ export const rootSchema = `
 
 export const rootResolver = {
     Query: {
+        core: () =>
+            Core.then(res => res.findOne({})),
+
         orders: () =>
             Orders.then(res => res.find({}).toArray()),
 

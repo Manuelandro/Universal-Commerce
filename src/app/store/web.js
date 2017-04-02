@@ -7,10 +7,18 @@ import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import localForage from 'localforage'
 import thunk from 'redux-thunk'
 import reducers from '../reducers'
+import { firebaseInit } from '../../logic/Firebase/init'
 
-const initialState = {}
+// Grab the state from a global variable injected into the server-generated HTML
+const preloadedState = window.__PRELOADSTATE__
+// Allow the passed state to be garbage-collected
+delete window.__PRELOADSTATE__
+
 const history = createBrowserHistory()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+// init firebase where the server can't read
+firebaseInit()
 
 const client = new ApolloClient({
     networkInterface: createNetworkInterface({
@@ -36,21 +44,17 @@ const enhancer = composeEnhancers(
 
 const store = createStore(
     theReducer,
-    initialState,
+    preloadedState,
     enhancer
 )
 
 persistStore(
     store,
-    { storage: localForage }
+    {
+        storage: localForage,
+        debounce: 500
+    }
 )
-
-
-if (module.hot) {
-    module.hot.accept('./reducers', () => {
-      store.replaceReducer(require('./reducers').default)
-    })
-}
 
 
 export default store

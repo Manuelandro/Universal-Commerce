@@ -1,7 +1,7 @@
 import React from 'react'
 import { Spinner, ErrorMsg, Product } from '../../components/web/'
 
-const ProductList = ({ data: { loading, error, products } }) => {
+const ProductList = ({ loading, error, products }) => {
     if (loading) {
         return <Spinner />
     }

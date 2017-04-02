@@ -1,17 +1,10 @@
 import firebase from 'firebase'
 import React, { Component } from 'react'
-import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apollo'
 import { View } from 'react-native'
-import store from './store/native'
-import RouterComponent from './routers/native'
-import { firebaseInit } from '../logic/Firebase/init'
+import { graphql } from 'react-apollo'
+import Routes from './routes/native'
 import { Button, Spinner } from '../components/native'
-
-const client = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3001/graphql',
-  })
-})
+import { CategoriesListQuery } from '../../web/server/graphql/queries/category'
 
 class UniversalApp extends Component {
   constructor() {
@@ -20,8 +13,6 @@ class UniversalApp extends Component {
   }
 
   componentWillMount() {
-    firebaseInit()
-
     /* if the auth state changes */
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -48,15 +39,23 @@ class UniversalApp extends Component {
   }
 
   render() {
+    const { data: { loading, categories } } = this.props
+
+    if (loading) {
+        return <div>...</div>
+    }
+
     return (
-      <ApolloProvider store={store} client={client}>
         <View style={{ flex: 1 }}>
-          <RouterComponent />
+          <Routes categories={categories} />
         </View>
-      </ApolloProvider>
     )
   }
 
 }
 
-export default UniversalApp
+export default graphql(
+    CategoriesListQuery, {
+        name: 'getCategories'
+    }
+)(UniversalApp)

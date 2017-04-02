@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
 import Schema from './graphql/schema'
 import { port } from './config'
+import matchRoutesHandler from './handlers/match.routes'
 
 const app = express()
 
@@ -24,10 +25,7 @@ app.use('/graphql', graphqlExpress(req => {
     }
 
     return {
-        schema: Schema,
-        context: {
-            posts: [1, 3, 4, 6]
-        },
+        schema: Schema
     }
 }))
 
@@ -39,9 +37,11 @@ app.use('/graphiql',
 
 app.use(express.static(path.resolve(__dirname, '../web/client/public/')))
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../web/client/index.html'))
-})
+})*/
+
+app.use(matchRoutesHandler)
 
 app.listen(port, () => console.log(
     `Server is now running on http://localhost:${port}`

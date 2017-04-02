@@ -1,3 +1,4 @@
+import { coreSchema } from './core'
 import { catalogSchema, catalogResolver } from './catalog'
 import { categorySchema, categoryResolver } from './category'
 import { productSchema, productResolver } from './product'
@@ -6,6 +7,7 @@ import { customerSchema, customerResolver } from './customer'
 import { rootSchema, rootResolver } from './root'
 
 const generateSchema = () => [
+    coreSchema,
     catalogSchema,
     categorySchema,
     productSchema,

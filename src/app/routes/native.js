@@ -6,7 +6,7 @@ import ProductListWithData from '../../scenes/ProductList/index.native'
 import About from '../../scenes/About/index.native'
 
 
-const RouterComponent = StackNavigator({
+const Routes = StackNavigator({
     Login: { screen: Login },
     Register: { screen: Register },
     ProductList: { screen: ProductListWithData },
@@ -14,4 +14,4 @@ const RouterComponent = StackNavigator({
 })
 
 
-export default RouterComponent
+export default Routes

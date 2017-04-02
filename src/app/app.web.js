@@ -1,13 +1,8 @@
 import firebase from 'firebase'
 import React, { Component } from 'react'
-import { ApolloProvider } from 'react-apollo'
-import { ConnectedRouter } from 'react-router-redux'
-import store, { history, client } from './store/web'
-import RouterComponent from './routers/web'
-import { firebaseInit } from '../logic/Firebase/init'
-
-
-
+import { graphql } from 'react-apollo'
+import { CategoriesListQuery } from '../../web/server/graphql/queries/category'
+import Routes from './routes/web'
 
 class UniversalApp extends Component {
   constructor() {
@@ -16,9 +11,6 @@ class UniversalApp extends Component {
   }
 
   componentWillMount() {
-    firebaseInit()
-
-    /* if the auth state changes */
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ logged: true })
@@ -29,17 +21,26 @@ class UniversalApp extends Component {
   }
 
   render() {
+    const { data: { loading, categories } } = this.props
+
+    if (loading) {
+        return <div>...</div>
+    }
+
     return (
-      <ApolloProvider store={store} client={client}>
-        <ConnectedRouter history={history}>
-          <div style={{ flex: 1 }}>
-            <RouterComponent />
-          </div>
-        </ConnectedRouter>
-      </ApolloProvider>
+        <div style={{ flex: 1 }}>
+            <Routes categories={categories} />
+        </div>
     )
   }
 
 }
 
-export default UniversalApp
+export default graphql(
+    CategoriesListQuery, {
+        name: 'getCategories',
+        options: {
+            ssr: true
+        },
+    }
+)(UniversalApp)

@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { render } from 'react-dom'
-import UniversalApp from './src/app/app.web'
+import UniversalCommerce from './src/app/index.web'
 
 render(
-  React.createElement(UniversalApp),
-  document.getElementById('react-root')
+    React.createElement(UniversalCommerce),
+    document.getElementById('react-root')
 )

@@ -27,6 +27,12 @@ module.exports = {
                 query: {
                     cacheDirectory: isDebug,
                     babelrc: false,
+                    presets: [
+                        'es2015',
+                        'stage-2',
+                        'react',
+                        ...isDebug ? [] : ['react-optimize']
+                    ],
                 },
             },
             {
