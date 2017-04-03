@@ -6,10 +6,10 @@ import { createStore, combineReducers } from 'redux'
 import { createNetworkInterface, ApolloProvider, renderToStringWithData } from 'react-apollo'
 import createApolloClient from '../helpers/create.apollo.client'
 import Html from '../helpers/create.html'
-import reducers from '../../../src/app/reducers'
-import routes from '../../../src/app/routes/web'
+import reducers from '../../src/app/reducers'
+import routes from '../../src/app/routes/web'
 import { port } from '../config'
-import UniversalApp from '../../../src/app/app.web'
+import UniversalApp from '../../src/app/container/web'
 
 // https://github.com/apollographql/apollo-client/issues/177#issuecomment-217136452
 global.fetch = fetch

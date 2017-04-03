@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
-import { ProductlistQuery } from '../../../web/server/graphql/queries/product'
+import { ProductlistQuery } from '../../../server/graphql/queries/product'
 import ProductList from './component.web'
 import { ScrollView } from '../../components/web/'
 

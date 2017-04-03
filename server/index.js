@@ -35,7 +35,7 @@ app.use('/graphiql',
     })
 )
 
-app.use(express.static(path.resolve(__dirname, '../web/client/public/')))
+app.use(express.static(path.resolve(__dirname, '../build.web/public/')))
 
 /*app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../web/client/index.html'))

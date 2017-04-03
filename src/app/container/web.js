@@ -1,8 +1,9 @@
 import firebase from 'firebase'
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
-import { CategoriesListQuery } from '../../web/server/graphql/queries/category'
-import Routes from './routes/web'
+import { CategoriesListQuery } from '../../../server/graphql/queries/category'
+import Routes from '../routes/web'
+import { firebaseInit } from '../../logic/Firebase/init'
 
 class UniversalApp extends Component {
   constructor() {
@@ -11,13 +12,16 @@ class UniversalApp extends Component {
   }
 
   componentWillMount() {
+    // init firebase where the server can't read
+    /*firebaseInit()
+
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ logged: true })
       } else {
         this.setState({ logged: false })
       }
-    })
+    })*/
   }
 
   render() {
@@ -38,7 +42,7 @@ class UniversalApp extends Component {
 
 export default graphql(
     CategoriesListQuery, {
-        name: 'getCategories',
+        // name: 'getCategories', fix this
         options: {
             ssr: true
         },

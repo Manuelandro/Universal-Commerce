@@ -1,7 +1,7 @@
 import React from 'react'
 import { RefreshControl } from 'react-native'
 import { graphql } from 'react-apollo'
-import { ProductlistQuery } from '../../../web/server/graphql/queries/product'
+import { ProductlistQuery } from '../../../server/graphql/queries/product'
 import ProductList from './component.native'
 import { ScrollView } from '../../components/native'
 

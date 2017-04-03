@@ -6,7 +6,7 @@ const isDebug = !process.argv.includes('--release')
 module.exports = {
     name: 'server',
     target: 'node',
-    entry: './web/server/index.js',
+    entry: './server/index.js',
     output: {
         path: path.resolve(__dirname, '../build.web/'),
         filename: 'server.js',

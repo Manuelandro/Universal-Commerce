@@ -2,9 +2,9 @@ import firebase from 'firebase'
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { graphql } from 'react-apollo'
-import Routes from './routes/native'
-import { Button, Spinner } from '../components/native'
-import { CategoriesListQuery } from '../../web/server/graphql/queries/category'
+import Routes from '../routes/native'
+import { Button, Spinner } from '../../components/native'
+import { CategoriesListQuery } from '../../../server/graphql/queries/category'
 
 class UniversalApp extends Component {
   constructor() {
@@ -56,6 +56,6 @@ class UniversalApp extends Component {
 
 export default graphql(
     CategoriesListQuery, {
-        name: 'getCategories'
+        // name: 'getCategories' fix this
     }
 )(UniversalApp)

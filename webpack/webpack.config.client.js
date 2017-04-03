@@ -11,7 +11,7 @@ module.exports = {
         client: ['babel-polyfill', './index.web.js']
     },
     output: {
-        path: path.resolve(__dirname, '../web/client/public/'),
+        path: path.resolve(__dirname, '../build.web/public/'),
         filename: isDebug ? '[name].js' : '[name].[chunkhash:8].js',
         chunkFilename: isDebug ? '[name].chunk.js' : '[name].[chunkhash:8].chunk.js',
     },
