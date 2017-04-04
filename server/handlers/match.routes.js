@@ -8,7 +8,7 @@ import createApolloClient from '../helpers/create.apollo.client'
 import Html from '../helpers/create.html'
 import reducers from '../../src/app/reducers'
 import routes from '../../src/app/routes/web'
-import { port } from '../config'
+import { host } from '../config'
 import UniversalApp from '../../src/app/container/web'
 
 // https://github.com/apollographql/apollo-client/issues/177#issuecomment-217136452
@@ -22,7 +22,7 @@ const matchRoutesHandler = (req, res) => {
     const client = createApolloClient({
         ssrMode: true,
         networkInterface: createNetworkInterface({
-            uri: `http://localhost:${port}/graphql`,
+            uri: `http://${host}/graphql`,
             opts: {
                 credentials: 'same-origin',
                 // transfer request headers to networkInterface so that they're accessible to proxy server
@@ -36,7 +36,7 @@ const matchRoutesHandler = (req, res) => {
 
     const UniversalCommerce = (
         <ApolloProvider client={client} store={store}>
-            <StaticRouter>
+            <StaticRouter location={req.url} context={{}}>
                 <UniversalApp />
             </StaticRouter>
         </ApolloProvider>
@@ -47,7 +47,7 @@ const matchRoutesHandler = (req, res) => {
             const data = client.store.getState().apollo.data
             res.status(200)
             const html = (
-                <Html content={content.markup} state={{ ...store.getState(), apollo: { data } }} />
+                <Html content={content} state={{ ...store.getState(), apollo: { data } }} />
             )
 
             res.send(`<!doctype html>\n${ReactDOM.renderToStaticMarkup(html)}`)

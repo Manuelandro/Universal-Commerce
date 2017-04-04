@@ -1,5 +1,5 @@
 import React from 'react'
-import { Spinner, ErrorMsg, Product } from '../../components/native/'
+import { Spinner, ErrorMsg, Product, Card } from '../../components/native/'
 
 const ProductList = ({ loading, error, products }) => {
     if (loading) {
@@ -12,11 +12,11 @@ const ProductList = ({ loading, error, products }) => {
 
 
     return (
-        <div>
+        <Card>
             {products.map(val =>
                 <Product product={val} key={val.name} />
             )}
-        </div>
+        </Card>
     )
 }
 

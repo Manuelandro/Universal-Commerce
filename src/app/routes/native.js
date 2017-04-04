@@ -7,10 +7,24 @@ import About from '../../scenes/About/index.native'
 
 
 const Routes = StackNavigator({
-    Login: { screen: Login },
-    Register: { screen: Register },
-    ProductList: { screen: ProductListWithData },
-    About: { screen: About }
+    Login: {
+        screen: Login,
+        path: '/'
+    },
+    Register: {
+        screen: Register,
+        path: '/register'
+    },
+    ProductList: {
+        screen: ProductListWithData,
+        path: '/productslist'
+    },
+    About: {
+        screen: About,
+        path: '/about'
+    }
+}, {
+
 })
 
 

@@ -1,17 +1,22 @@
 /* global window:false */
+import createMemoryHistory from 'history/createMemoryHistory'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { AsyncStorage } from 'react-native'
 import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import { persistStore, autoRehydrate } from 'redux-persist'
 import thunk from 'redux-thunk'
 import reducers from '../reducers/'
-import { firebaseInit } from '../../logic/Firebase/init'
+import Routes from '../routes/native'
 
 const initialState = {}
+const history = createMemoryHistory()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-// init firebase where the server can't read
-firebaseInit()
+
+const routerReducer = (state, action) => {
+    const newState = Routes.router.getStateForAction(action, state)
+    return newState || state
+}
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -21,6 +26,7 @@ const client = new ApolloClient({
 
 const theReducer = combineReducers({
     ...reducers,
+    routing: routerReducer,
     apollo: client.reducer()
 })
 
@@ -49,3 +55,4 @@ persistStore(
 
 
 export default store
+export { client, history }

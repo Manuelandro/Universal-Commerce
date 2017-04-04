@@ -4,7 +4,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
 import Schema from './graphql/schema'
-import { port } from './config'
+import { host, port } from './config'
 import matchRoutesHandler from './handlers/match.routes'
 
 const app = express()
@@ -12,9 +12,7 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use('/graphql', (req, res, next) => {
-    next()
-})
+app.use('/graphql', (req, res, next) => next())
 app.use('/graphql', graphqlExpress(req => {
     const query = req.query.query || req.body.query
 
@@ -29,20 +27,10 @@ app.use('/graphql', graphqlExpress(req => {
     }
 }))
 
-app.use('/graphiql',
-    graphiqlExpress({
-        endpointURL: '/graphql'
-    })
-)
-
+app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 app.use(express.static(path.resolve(__dirname, '../build.web/public/')))
-
-/*app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../web/client/index.html'))
-})*/
-
 app.use(matchRoutesHandler)
 
 app.listen(port, () => console.log(
-    `Server is now running on http://localhost:${port}`
+    `Server is now running on http://${host}`
 ))

@@ -1,0 +1,11 @@
+{
+    "entity_id": null,
+    "cart": null,
+    "customer": "",
+    "billing": null,
+    "shipping": null,
+    "shippingTax": 0,
+    "shippingMethod": null,
+    "paymentMethod": null,
+    "completed": false
+}

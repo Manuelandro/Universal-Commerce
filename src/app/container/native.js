@@ -1,61 +1,54 @@
-import firebase from 'firebase'
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { View } from 'react-native'
-import { graphql } from 'react-apollo'
+import { addNavigationHelpers } from 'react-navigation'
+import { graphql, compose } from 'react-apollo'
+import { connect } from 'react-redux'
 import Routes from '../routes/native'
-import { Button, Spinner } from '../../components/native'
 import { CategoriesListQuery } from '../../../server/graphql/queries/category'
 
+
 class UniversalApp extends Component {
+  static propTypes = {
+    data: PropTypes.shape({
+      loading: PropTypes.bool,
+      categories: PropTypes.array
+    }).isRequired
+  }
+
   constructor() {
     super()
     this.state = { logged: null }
   }
 
-  componentWillMount() {
-    /* if the auth state changes */
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ logged: true })
-      } else {
-        this.setState({ logged: false })
-      }
-    })
-  }
-
-  renderContent() {
-    switch (this.state.logged) {
-      case true:
-        return (
-          <Button onPress={() => firebase.auth().signOut()}>Logout</Button>
-        )
-      case false:
-        return
-      default:
-        return (
-          <Spinner />
-        )
-    }
-  }
-
   render() {
-    const { data: { loading, categories } } = this.props
+    const { dispatch, routing, data: { loading, categories } } = this.props
 
     if (loading) {
-        return <div>...</div>
+        return (
+          <View style={{ flex: 1 }} />
+        )
     }
+
 
     return (
         <View style={{ flex: 1 }}>
-          <Routes categories={categories} />
+          <Routes
+            categories={categories}
+            // https://reactnavigation.org/docs/guides/redux
+            navigation={addNavigationHelpers({
+              dispatch,
+              state: routing
+            })}
+          />
         </View>
     )
   }
 
 }
 
-export default graphql(
-    CategoriesListQuery, {
-        // name: 'getCategories' fix this
-    }
+const mapStateToProps = ({ routing }) => ({ routing })
+
+export default compose(
+  graphql(CategoriesListQuery, { /* name: 'getCategories' fix this */ }),
+  connect(mapStateToProps)
 )(UniversalApp)
