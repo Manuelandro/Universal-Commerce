@@ -5,6 +5,8 @@ export const CategoriesListQuery = gql`
         categories {
             entity_id
             name
-            category_url
+            urlRwrite {
+                path
+            }
     }
 }`

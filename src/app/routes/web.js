@@ -1,10 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Route } from 'react-router'
 import { addRoute } from './addRoute'
-import Login from '../../scenes/Login/index.web'
-import ProductListWithData from '../../scenes/ProductList/index.web'
-import ProductView from '../../scenes/ProductView/index.web'
-import About from '../../scenes/About/index.web'
 
 
 /* to fix ths
@@ -12,17 +8,9 @@ import About from '../../scenes/About/index.web'
     const WrappedProductList = () => <ProductListWithData category={entity_id} />
 )*/
 
-let routes = [
-    {
-        path: '/',
-        component: Login,
-        key: 0,
-        exact: true
-    }
-]
-
-const Routes = ({ categories }) => {
-    routes = addRoute(routes, categories, ProductListWithData)
+const Routes = ({ rewrites }) => {
+    const routes = addRoute(rewrites)
+    console.log(routes)
     return (
         <div>
             {routes.map(route => (

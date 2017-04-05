@@ -1,4 +1,4 @@
-import { Categories } from '../../mongodb/connectors'
+import { Categories, Rewrites } from '../../mongodb/connectors'
 
 export const productSchema = `
     type Product {
@@ -11,14 +11,17 @@ export const productSchema = `
     brand: String
     region: String
     small_image: String
-    product_url: String
-    category: Category
+    urlRwrite: Rewrite
+    category: [Category]
     }
 `
 
 export const productResolver = {
     Product: {
-        category: (product) =>
-            Categories.then(res => res.find({ entity_id: product.category }).toArray())
+        category: ({ category }) =>
+            Categories.then(res => res.find({ entity_id: category }).toArray()),
+
+        urlRwrite: ({ urlRwrite }) =>
+            Rewrites.then(res => res.findOne({ entity_id: urlRwrite }))
     }
 }

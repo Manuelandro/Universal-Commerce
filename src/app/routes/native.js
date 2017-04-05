@@ -6,7 +6,7 @@ import ProductListWithData from '../../scenes/ProductList/index.native'
 import About from '../../scenes/About/index.native'
 
 
-const Routes = StackNavigator({
+let routes = {
     Login: {
         screen: Login,
         path: '/'
@@ -15,17 +15,7 @@ const Routes = StackNavigator({
         screen: Register,
         path: '/register'
     },
-    ProductList: {
-        screen: ProductListWithData,
-        path: '/productslist'
-    },
-    About: {
-        screen: About,
-        path: '/about'
-    }
-}, {
-
-})
+}
 
 
-export default Routes
+export default StackNavigator(routes, {})

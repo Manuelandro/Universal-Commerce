@@ -2,6 +2,7 @@
     "extends": "rallycoding",
     "rules": {
         "max-len": [1, 120, 2, { "ignoreComments": true}],
+        "indent": ["error", 4, {"SwitchCase": 1}],
         "semi": ["error", "never"],
         "eol-last": "off"
     },

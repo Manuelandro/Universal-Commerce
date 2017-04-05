@@ -32,6 +32,7 @@ local.properties
 
 # node.js
 #
+.env
 build.web
 node_modules/
 npm-debug.log

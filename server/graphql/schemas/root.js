@@ -1,4 +1,4 @@
-import { Core, Customers, Orders, Categories, Products } from '../../mongodb/connectors'
+import { Core, Customers, Orders, Categories, Products, Rewrites } from '../../mongodb/connectors'
 
 export const rootSchema = `
     # the schema allows the following query:
@@ -10,6 +10,7 @@ export const rootSchema = `
     category(entity_id: Int!): Category
     products(category: Int!): [Product]
     product(entity_id: Int!): Product
+    rewrites: [Rewrite]
     }
 
     type Mutation {
@@ -43,6 +44,9 @@ export const rootResolver = {
             Products.then(res => res.findOne({ entity_id: args.entity_id })),
 
         products: (obj, args) =>
-            Products.then(res => res.find({ category: args.category }).toArray())
+            Products.then(res => res.find({ category: args.category }).toArray()),
+
+        rewrites: () =>
+            Rewrites.then(res => res.find({}).toArray())
     }
 }

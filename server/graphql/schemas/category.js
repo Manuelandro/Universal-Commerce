@@ -1,19 +1,22 @@
-import { Catalogs, Products } from '../../mongodb/connectors'
+import { Catalogs, Products, Rewrites } from '../../mongodb/connectors'
 
 export const categorySchema = `
     type Category {
     entity_id: ID!
     name: String
     catalog: Catalog
-    category_url: String
+    urlRwrite: Rewrite
     products: [Product]
     }
 `
 
 export const categoryResolver = {
     Category: {
-        catalog: (category) =>
-            Catalogs.then(res => res.find({ entity_id: category.catalog }).toArray()),
+        catalog: ({ catalog }) =>
+            Catalogs.then(res => res.find({ entity_id: catalog }).toArray()),
+
+        urlRwrite: ({ urlRwrite }) =>
+            Rewrites.then(res => res.findOne({ entity_id: urlRwrite })),
 
         products: () =>
             Products.then(res => res.find({}).toArray()),

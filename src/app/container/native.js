@@ -4,51 +4,51 @@ import { addNavigationHelpers } from 'react-navigation'
 import { graphql, compose } from 'react-apollo'
 import { connect } from 'react-redux'
 import Routes from '../routes/native'
-import { CategoriesListQuery } from '../../../server/graphql/queries/category'
+import { RewritesList } from '../../../server/graphql/queries/rewrite'
 
 
 class UniversalApp extends Component {
-  static propTypes = {
-    data: PropTypes.shape({
-      loading: PropTypes.bool,
-      categories: PropTypes.array
-    }).isRequired
-  }
-
-  constructor() {
-    super()
-    this.state = { logged: null }
-  }
-
-  render() {
-    const { dispatch, routing, data: { loading, categories } } = this.props
-
-    if (loading) {
-        return (
-          <View style={{ flex: 1 }} />
-        )
+    static propTypes = {
+        data: PropTypes.shape({
+            loading: PropTypes.bool,
+            categories: PropTypes.array
+        }).isRequired
     }
 
+    constructor() {
+        super()
+        this.state = { logged: null }
+    }
 
-    return (
-        <View style={{ flex: 1 }}>
-          <Routes
-            categories={categories}
-            // https://reactnavigation.org/docs/guides/redux
-            navigation={addNavigationHelpers({
-              dispatch,
-              state: routing
-            })}
-          />
-        </View>
-    )
-  }
+    render() {
+        const { dispatch, routing, data: { loading, categories } } = this.props
+
+        if (loading) {
+            return (
+                <View style={{ flex: 1 }} />
+            )
+        }
+
+
+        return (
+            <View style={{ flex: 1 }}>
+                <Routes
+                  categories={categories}
+                  // https://reactnavigation.org/docs/guides/redux
+                  navigation={addNavigationHelpers({
+                      dispatch,
+                      state: routing
+                  })}
+                />
+            </View>
+        )
+    }
 
 }
 
 const mapStateToProps = ({ routing }) => ({ routing })
 
 export default compose(
-  graphql(CategoriesListQuery, { /* name: 'getCategories' fix this */ }),
+  graphql(RewritesList, { /* name: 'getRewrites' fix this */ }),
   connect(mapStateToProps)
 )(UniversalApp)

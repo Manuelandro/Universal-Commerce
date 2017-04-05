@@ -1,3 +1,6 @@
+/* eslint-disable import/imports-first */
+require('dotenv').config()
+
 import path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -7,23 +10,35 @@ import Schema from './graphql/schema'
 import { host, port } from './config'
 import matchRoutesHandler from './handlers/match.routes'
 
+import OpticsAgent from 'optics-agent'
+
+OpticsAgent.instrumentSchema(Schema)
+
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
+
+if (process.env.OPTICS_API_KEY) {
+    app.use('/graphql', OpticsAgent.middleware())
+}
+
 app.use('/graphql', (req, res, next) => next())
 app.use('/graphql', graphqlExpress(req => {
     const query = req.query.query || req.body.query
 
     if (query && query.length > 2000) {
-      // None of our app's queries are this long
-      // Probably indicates someone trying to send an overly expensive query
-      throw new Error('Query too large.')
+        // None of our app's queries are this long
+        // Probably indicates someone trying to send an overly expensive query
+        throw new Error('Query too large.')
     }
 
     return {
-        schema: Schema
+        schema: Schema,
+        context: {
+            opticsContext: OpticsAgent.context(req)
+        }
     }
 }))
 

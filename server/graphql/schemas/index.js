@@ -4,6 +4,8 @@ import { categorySchema, categoryResolver } from './category'
 import { productSchema, productResolver } from './product'
 import { orderSchema, orderResolver } from './order'
 import { customerSchema, customerResolver } from './customer'
+import { cmsSchema } from './cms'
+import { rewriteSchema, rewriteResolver } from './rewrite'
 import { rootSchema, rootResolver } from './root'
 
 const generateSchema = () => [
@@ -13,7 +15,8 @@ const generateSchema = () => [
     productSchema,
     orderSchema,
     customerSchema,
-    customerSchema,
+    cmsSchema,
+    rewriteSchema,
     rootSchema
 ].reduce((a, b) => a + b)
 
@@ -24,6 +27,7 @@ const generateResolver = () =>
         productResolver,
         orderResolver,
         customerResolver,
+        rewriteResolver,
         rootResolver
     )
 

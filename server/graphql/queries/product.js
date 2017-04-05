@@ -6,6 +6,8 @@ export const ProductlistQuery = gql`
             name
             small_image
             brand
-            product_url
+            urlRwrite {
+                path
+            }
     }
 }`

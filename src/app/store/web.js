@@ -6,6 +6,7 @@ import { persistStore, autoRehydrate } from 'redux-persist'
 import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import localForage from 'localforage'
 import thunk from 'redux-thunk'
+import { host } from '../../../server/config'
 import reducers from '../reducers'
 
 
@@ -21,7 +22,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const client = new ApolloClient({
     networkInterface: createNetworkInterface({
-        uri: 'http://localhost:3001/graphql',
+        uri: `http://${host}/graphql`,
     })
 })
 

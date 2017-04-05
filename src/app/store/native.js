@@ -7,6 +7,7 @@ import { persistStore, autoRehydrate } from 'redux-persist'
 import thunk from 'redux-thunk'
 import reducers from '../reducers/'
 import Routes from '../routes/native'
+import { host } from '../../../server/config'
 
 const initialState = {}
 const history = createMemoryHistory()
@@ -20,7 +21,7 @@ const routerReducer = (state, action) => {
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3001/graphql',
+    uri: `http://${host}/graphql`,
   })
 })
 
