@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { RewritesList } from '../../../server/graphql/queries/rewrite'
 import Routes from '../routes/web'
+import { Header } from '../../components/web'
 // import { firebaseInit } from '../../logic/Firebase/init'
 
 class UniversalApp extends Component {
@@ -33,7 +34,9 @@ class UniversalApp extends Component {
 
         return (
             <div style={{ flex: 1 }}>
-                <Routes rewrites={rewrites} />
+                <Header>
+                    <Routes rewrites={rewrites} />
+                </Header>
             </div>
         )
     }

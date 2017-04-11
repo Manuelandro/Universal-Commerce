@@ -20,9 +20,9 @@ const routerReducer = (state, action) => {
 }
 
 const client = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: `http://${host}/graphql`,
-  })
+    networkInterface: createNetworkInterface({
+        uri: `http://${host}/graphql`,
+    })
 })
 
 const theReducer = combineReducers({
@@ -49,6 +49,7 @@ const store = createStore(
 persistStore(
     store,
     {
+        blacklist: ['routing'], // https://medium.com/the-react-native-log/react-navigation-with-redux-and-immutable-js-1385c0457cb8#7e75
         storage: AsyncStorage,
         debounce: 500
     }

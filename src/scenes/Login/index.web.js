@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/web'
@@ -6,6 +6,13 @@ import * as actions from './actions'
 import { navigateTo } from '../../logic/Navigation'
 
 class Login extends Component {
+    static propTypes = {
+        login: PropTypes.object.isRequired,
+        loginStart: PropTypes.func.isRequired,
+        saveField: PropTypes.func.isRequired,
+        resetScene: PropTypes.func.isRequired,
+        history: PropTypes.object.isRequired
+    }
 
     componentWillReceiveProps() {
         const { login, resetScene, history } = this.props

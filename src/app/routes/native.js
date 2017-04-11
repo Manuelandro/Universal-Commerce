@@ -1,21 +1,42 @@
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
-import Login from '../../scenes/Login/index.native'
-import Register from '../../scenes/Register/index.native'
+
+import HomeWithData from '../../scenes/Home/index.native'
+import LoginWithData from '../../scenes/Login/index.native'
 import ProductListWithData from '../../scenes/ProductList/index.native'
-import About from '../../scenes/About/index.native'
+import ProductView from '../../scenes/ProductView/index.native'
 
 
-let routes = {
-    Login: {
-        screen: Login,
-        path: '/'
-    },
-    Register: {
-        screen: Register,
-        path: '/register'
-    },
+const dynamicComps = {
+    Home: HomeWithData,
+    Login: LoginWithData,
+    category: ProductListWithData,
+    product: ProductView,
 }
 
 
-export default StackNavigator(routes, {})
+const Routes = ({ rewrites }) => {
+    const routes = rewrites.filter(obj => {
+        const { isEnabled, type, system, path, entity_id } = obj
+
+        if (isEnabled === 0) {
+            return true
+        }
+
+        const component = (type === 'system')
+            ? dynamicComps[system]
+            : dynamicComps[type]
+
+        return {
+            path: `/${path}`,
+            screen: component,
+            key: entity_id
+        }
+    })
+
+    return routes
+}
+
+
+
+export default StackNavigator(Routes(), {})

@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Text } from 'react-native'
 import { connect } from 'react-redux'
 import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/native'
@@ -8,6 +8,14 @@ import { navigateTo } from '../../logic/Navigation'
 import { firebaseInit } from '../../logic/Firebase/init'
 
 class Login extends Component {
+    static propTypes = {
+        login: PropTypes.object.isRequired,
+        loginStart: PropTypes.func.isRequired,
+        saveField: PropTypes.func.isRequired,
+        resetScene: PropTypes.func.isRequired,
+        navigation: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+    }
     static navigationOptions = {
         title: 'Login'
     }
@@ -34,7 +42,7 @@ class Login extends Component {
         }
     }
 
-      renderContent() {
+    renderContent() {
         switch (this.state.logged) {
             case true:
                 return (

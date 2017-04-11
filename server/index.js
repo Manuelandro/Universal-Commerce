@@ -6,13 +6,10 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
+import OpticsAgent from 'optics-agent'
 import Schema from './graphql/schema'
 import { host, port } from './config'
 import matchRoutesHandler from './handlers/match.routes'
-
-import OpticsAgent from 'optics-agent'
-
-OpticsAgent.instrumentSchema(Schema)
 
 const app = express()
 
@@ -21,6 +18,7 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 
 if (process.env.OPTICS_API_KEY) {
+    OpticsAgent.instrumentSchema(Schema)
     app.use('/graphql', OpticsAgent.middleware())
 }
 
@@ -36,6 +34,7 @@ app.use('/graphql', graphqlExpress(req => {
 
     return {
         schema: Schema,
+        debug: process.env.development,
         context: {
             opticsContext: OpticsAgent.context(req)
         }

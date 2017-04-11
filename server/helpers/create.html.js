@@ -6,6 +6,7 @@ const Html = ({ content, state }) => (
             <meta charSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>Universal eCommerce</title>
+            <link rel="stylesheet" href="reset.css" />
         </head>
         <body>
             <div id="react-root" dangerouslySetInnerHTML={{ __html: content }} />

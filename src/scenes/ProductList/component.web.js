@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Spinner, ErrorMsg, Product } from '../../components/web/'
 
 const ProductList = ({ loading, error, products }) => {
@@ -18,6 +18,13 @@ const ProductList = ({ loading, error, products }) => {
             )}
         </div>
     )
+}
+
+
+ProductList.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string,
+    products: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 
