@@ -1,11 +1,11 @@
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { ConnectedRouter } from 'react-router-redux'
-import store, { client, history } from './store/web'
+import store, { apolloClient, history } from './store/web'
 import UniversalApp from './container/web'
 
 const UniversalCommerce = () =>
-    <ApolloProvider store={store} client={client}>
+    <ApolloProvider store={store} client={apolloClient}>
         <ConnectedRouter history={history}>
             <UniversalApp />
         </ConnectedRouter>

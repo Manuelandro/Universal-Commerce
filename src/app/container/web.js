@@ -34,9 +34,10 @@ class UniversalApp extends Component {
 
         return (
             <div style={{ flex: 1 }}>
-                <Header>
+                <Header />
+                <div style={{ padding: '60px 5% 0' }}>
                     <Routes rewrites={rewrites} />
-                </Header>
+                </div>
             </div>
         )
     }

@@ -4,7 +4,7 @@ import { Route } from 'react-router'
 import HomeWithData from '../../scenes/Home/index.web'
 import LoginWithData from '../../scenes/Login/index.web'
 import ProductListWithData from '../../scenes/ProductList/index.web'
-import ProductView from '../../scenes/ProductView/index.web'
+import ProductViewWithData from '../../scenes/ProductView/index.web'
 
 
 /* to fix ths
@@ -16,7 +16,7 @@ const dynamicComps = {
     Home: HomeWithData,
     Login: LoginWithData,
     category: ProductListWithData,
-    product: ProductView,
+    product: ProductViewWithData,
 }
 
 
@@ -33,6 +33,7 @@ const Routes = ({ rewrites }) => {
         const component = (type === 'system')
             ? dynamicComps[system]
             : dynamicComps[type]
+
 
         routes.push({
             path: `/${path}`,

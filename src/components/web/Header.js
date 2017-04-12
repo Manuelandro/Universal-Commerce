@@ -5,11 +5,12 @@ import { Image } from './'
 const { View, Text, Logo, Burger, Cart } = {
     View: styled.div`
         display: flex;
+        position: fixed;
+        width: 100%;
         height: 60px;
         justify-content: space-around;
         align-items: center;
         background-color: #fff;
-        position: relative;
     `,
     Text: styled.p`
         font-size: 20px;

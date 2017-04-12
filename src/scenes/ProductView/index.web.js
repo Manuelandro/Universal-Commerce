@@ -1,31 +1,32 @@
-import React, { Component } from 'react'
-import { ScrollView, Spinner, ErrorMsg, Product } from '../../components/web/'
+import React from 'react'
+import { withRouter } from 'react-router'
+import { graphql } from 'react-apollo'
+import { ProductViewQuery } from '../../../server/graphql/queries/product'
+import ProductView from './component.web'
+import { ScrollView } from '../../components/web/'
 
-class ProductView extends Component {
 
-    renderProduct() {
-        const { data } = this.props
+const ProductViewWithData = (props) =>
+    (
+        <ScrollView>
+            <ProductView {...props} />
+        </ScrollView>
+    )
 
-        if (data.loading) {
-            return <Spinner />
-        }
 
-        if (typeof data.error !== 'undefined') {
-            return <ErrorMsg>Somenthing went wrong</ErrorMsg>
-        }
-
-        return (
-            <Product product={data.product} key={data.product.name} />
-        )
+const withQuery = graphql(
+    ProductViewQuery, {
+        options: ({ product }) => ({
+            variables: {
+                product: 1
+            }
+        }),
+        props: ({ data: { loading, error, product } }) => ({
+            loading, error, product
+        })
     }
+)
 
-    render() {
-        return (
-            <ScrollView>
-                {this.renderProduct()}
-            </ScrollView>
-        )
-    }
-}
-
-export default ProductView
+export default withQuery(
+    withRouter(ProductViewWithData)
+)

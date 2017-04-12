@@ -5,7 +5,7 @@ export const categorySchema = `
     entity_id: ID!
     name: String
     catalog: Catalog
-    urlRwrite: Rewrite
+    urlRewrite: Rewrite
     products: [Product]
     }
 `
@@ -15,10 +15,10 @@ export const categoryResolver = {
         catalog: ({ catalog }) =>
             Catalogs.then(res => res.find({ entity_id: catalog }).toArray()),
 
-        urlRwrite: ({ urlRwrite }) =>
-            Rewrites.then(res => res.findOne({ entity_id: urlRwrite })),
+        urlRewrite: ({ entity_id }) =>
+            Rewrites.then(res => res.findOne({ category: entity_id })),
 
-        products: () =>
-            Products.then(res => res.find({}).toArray()),
+        products: ({ entity_id }) =>
+            Products.then(res => res.find({ category: entity_id }).toArray()),
     }
 }

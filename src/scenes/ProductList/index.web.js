@@ -15,13 +15,12 @@ const ProductListWithData = (props) =>
 
 const withQuery = graphql(
     ProductlistQuery, {
-        name: 'ProductsFromCategory',
         options: ({ category }) => ({
             variables: {
                 category: parseInt(1)
             }
         }),
-        props: ({ ProductsFromCategory: { loading, error, products } }) => ({
+        props: ({ data: { loading, error, products } }) => ({
             loading, error, products
         })
     }

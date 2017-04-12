@@ -11,7 +11,8 @@ export const productSchema = `
     brand: String
     region: String
     small_image: String
-    urlRwrite: Rewrite
+    inventory: Int!
+    urlRewrite: Rewrite
     category: [Category]
     }
 `
@@ -21,7 +22,7 @@ export const productResolver = {
         category: ({ category }) =>
             Categories.then(res => res.find({ entity_id: category }).toArray()),
 
-        urlRwrite: ({ urlRwrite }) =>
-            Rewrites.then(res => res.findOne({ entity_id: urlRwrite }))
+        urlRewrite: ({ entity_id }) =>
+            Rewrites.then(res => res.findOne({ product: entity_id }))
     }
 }

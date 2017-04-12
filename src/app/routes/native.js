@@ -4,14 +4,14 @@ import { StackNavigator } from 'react-navigation'
 import HomeWithData from '../../scenes/Home/index.native'
 import LoginWithData from '../../scenes/Login/index.native'
 import ProductListWithData from '../../scenes/ProductList/index.native'
-import ProductView from '../../scenes/ProductView/index.native'
+import ProductViewWithData from '../../scenes/ProductView/index.native'
 
 
 const dynamicComps = {
     Home: HomeWithData,
     Login: LoginWithData,
     category: ProductListWithData,
-    product: ProductView,
+    product: ProductViewWithData,
 }
 
 

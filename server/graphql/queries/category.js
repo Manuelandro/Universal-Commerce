@@ -5,7 +5,7 @@ export const CategoriesListQuery = gql`
         categories {
             entity_id
             name
-            urlRwrite {
+            urlRewrite {
                 path
             }
     }

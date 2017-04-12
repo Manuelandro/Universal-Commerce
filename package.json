@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "apollo-client": "^1.0.1",
     "axios": "^0.15.3",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.22.0",
@@ -34,6 +35,8 @@
     "mysql": "^2.12.0",
     "node-fetch": "^1.6.3",
     "optics-agent": "^1.1.2",
+    "prop-types": "^15.5.7",
+    "ramda": "^0.23.0",
     "react": "15.4.2",
     "react-apollo": "^1.0.0-rc.3",
     "react-dom": "^15.4.2",
@@ -45,7 +48,9 @@
     "react-router": "^4.0.0-beta.8",
     "react-router-dom": "^4.0.0",
     "react-router-redux": "^5.0.0-alpha.4",
+    "react-transition-group": "^1.1.1",
     "redux": "^3.6.0",
+    "redux-action-buffer": "^1.0.1",
     "redux-persist": "^4.0.1",
     "redux-thunk": "^2.2.0",
     "styled-components": "^1.4.2"
@@ -70,6 +75,8 @@
     "jest": "18.1.0",
     "json-loader": "^0.5.4",
     "react-test-renderer": "15.4.2",
+    "remote-redux-devtools": "^0.5.7",
+    "remote-redux-devtools-on-debugger": "^0.7.0",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.3.1",
     "webpack-dev-middleware": "^1.9.0",

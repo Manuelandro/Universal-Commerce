@@ -6,8 +6,22 @@ export const ProductlistQuery = gql`
             name
             small_image
             brand
-            urlRwrite {
+            inventory
+            urlRewrite {
                 path
             }
+        }
     }
-}`
+`
+
+
+export const ProductViewQuery = gql`
+    query getProductData($product: Int!) {
+        product(entity_id: $product) {
+            name
+            small_image
+            brand
+            inventory
+        }
+    }
+`

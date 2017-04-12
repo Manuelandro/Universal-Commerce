@@ -1,10 +1,13 @@
 /* global window:false */
 import createMemoryHistory from 'history/createMemoryHistory'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage, Platform } from 'react-native'
 import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import { persistStore, autoRehydrate } from 'redux-persist'
+import { REHYDRATE } from 'redux-persist/constants'
+import createActionBuffer from 'redux-action-buffer'
 import thunk from 'redux-thunk'
+import devTools from 'remote-redux-devtools'
 import reducers from '../reducers/'
 import Routes from '../routes/native'
 import { host } from '../../../server/config'
@@ -19,7 +22,7 @@ const routerReducer = (state, action) => {
     return newState || state
 }
 
-const client = new ApolloClient({
+const apolloClient = new ApolloClient({
     networkInterface: createNetworkInterface({
         uri: `http://${host}/graphql`,
     })
@@ -28,20 +31,37 @@ const client = new ApolloClient({
 const theReducer = combineReducers({
     ...reducers,
     routing: routerReducer,
-    apollo: client.reducer()
+    apollo: apolloClient.reducer()
 })
 
+// http://stackoverflow.com/questions/35622588/how-to-reset-the-state-of-a-redux-store
+const rootReducer = (state, action) => {
+    let newState = state
+
+    if (action.type === 'RESET_WHOLE_STATE') {
+        newState = undefined
+    }
+
+    return theReducer(newState, action)
+}
+
 const enhancer = composeEnhancers(
+    autoRehydrate(),
     applyMiddleware(
         thunk,
-        client.middleware()
+        createActionBuffer(REHYDRATE),
+        apolloClient.middleware()
     ),
-    autoRehydrate()
+    devTools({
+        name: Platform.OS,
+        hostname: 'localhost',
+        port: 5678
+    }),
 )
 
 
 const store = createStore(
-    theReducer,
+    rootReducer,
     initialState,
     enhancer
 )
@@ -57,4 +77,4 @@ persistStore(
 
 
 export default store
-export { client, history }
+export { apolloClient, history }

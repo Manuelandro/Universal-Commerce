@@ -10,4 +10,3 @@ export * from './ErrorMsg'
 export * from './Spinner'
 
 export * from './Header'
-export * from './Product'
