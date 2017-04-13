@@ -1,6 +1,13 @@
 {
     "entity_id": null,
-    "customer": "",
-    "count": 0,
-    "products": []
+    "customer": 0,
+    "isActive": 0,
+    "baseGrandTotal": 0,
+    "productCount": 0,
+    "productQty": 0,
+    "products": [],
+    "addressBilling": {},
+    "addressShipping": {},
+    "shippingMethod": {},
+    "paymentMethod": {}
 }

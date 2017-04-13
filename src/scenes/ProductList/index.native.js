@@ -1,6 +1,6 @@
 import React from 'react'
 import { RefreshControl } from 'react-native'
-import { graphql } from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
 import { ProductlistQuery } from '../../../server/graphql/queries/product'
 import ProductList from './component.native'
 import { ScrollView } from '../../components/native'
@@ -18,20 +18,19 @@ const ProductListWithData = (props) =>
     </ScrollView>
 
 
-const withQuery = graphql(
-    ProductlistQuery, {
-        name: 'ProductsFromCategory',
-        options: ({ category }) => ({
-            variables: {
-                category: 1
-            }
-        }),
-        props: ({ ownProps, ProductsFromCategory: { loading, error, products, networkStatus, refetch } }) => ({
-            ...ownProps, loading, error, products, networkStatus, refetch
-        })
-    }
-)
+const ProductlistQueryOptions = {
+    options: ({ category: { entity_id } }) => ({
+        variables: {
+            category: parseInt(entity_id, 10)
+        }
+    }),
+    props: ({ ownProps, data: { loading, error, products, networkStatus, refetch } }) => ({
+        ...ownProps, loading, error, products, networkStatus, refetch
+    })
+}
 
-export default withQuery(
-    ProductListWithData
-)
+
+
+export default compose(
+    graphql(ProductlistQuery, ProductlistQueryOptions)
+)(ProductListWithData)

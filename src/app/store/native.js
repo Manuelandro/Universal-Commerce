@@ -3,9 +3,9 @@ import createMemoryHistory from 'history/createMemoryHistory'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { AsyncStorage, Platform } from 'react-native'
 import { ApolloClient, createNetworkInterface } from 'react-apollo'
-import { persistStore, autoRehydrate } from 'redux-persist'
-import { REHYDRATE } from 'redux-persist/constants'
-import createActionBuffer from 'redux-action-buffer'
+// import { persistStore, autoRehydrate } from 'redux-persist'
+// import { REHYDRATE } from 'redux-persist/constants'
+// import createActionBuffer from 'redux-action-buffer'
 import thunk from 'redux-thunk'
 import devTools from 'remote-redux-devtools'
 import reducers from '../reducers/'
@@ -46,10 +46,10 @@ const rootReducer = (state, action) => {
 }
 
 const enhancer = composeEnhancers(
-    autoRehydrate(),
+    // autoRehydrate(),
     applyMiddleware(
         thunk,
-        createActionBuffer(REHYDRATE),
+        // createActionBuffer(REHYDRATE),
         apolloClient.middleware()
     ),
     devTools({
@@ -66,14 +66,14 @@ const store = createStore(
     enhancer
 )
 
-persistStore(
+/*persistStore(
     store,
     {
         blacklist: ['routing'], // https://medium.com/the-react-native-log/react-navigation-with-redux-and-immutable-js-1385c0457cb8#7e75
         storage: AsyncStorage,
         debounce: 500
     }
-)
+)*/
 
 
 export default store

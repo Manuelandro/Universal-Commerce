@@ -27,11 +27,19 @@ const Routes = ({ rewrites }) => {
             ? dynamicComps[system]
             : dynamicComps[type]
 
-        return {
+        const property = (type === 'system')
+            ? system
+            : type
+
+        const thisRoute = {
             path: `/${path}`,
             screen: component,
             key: entity_id
         }
+
+        thisRoute[property] = obj[property]
+
+        return thisRoute
     })
 
     return routes

@@ -1,9 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router'
-import { graphql } from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
 import { ProductlistQuery } from '../../../server/graphql/queries/product'
 import ProductList from './component.web'
 import { ScrollView } from '../../components/web/'
+
 
 const ProductListWithData = (props) =>
     (
@@ -13,19 +14,18 @@ const ProductListWithData = (props) =>
     )
 
 
-const withQuery = graphql(
-    ProductlistQuery, {
-        options: ({ category }) => ({
-            variables: {
-                category: parseInt(1)
-            }
-        }),
-        props: ({ data: { loading, error, products } }) => ({
-            loading, error, products
-        })
-    }
-)
+const ProductlistQueryOptions = {
+    options: ({ category: { entity_id } }) => ({
+        variables: {
+            category: parseInt(entity_id, 10)
+        }
+    }),
+    props: ({ ownProps, data: { loading, error, products } }) => ({
+        ...ownProps, loading, error, products
+    })
+}
 
-export default withQuery(
-    withRouter(ProductListWithData)
-)
+export default compose(
+    graphql(ProductlistQuery, ProductlistQueryOptions),
+    withRouter
+)(ProductListWithData)

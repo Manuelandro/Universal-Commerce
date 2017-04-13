@@ -1,16 +1,11 @@
 import React from 'react'
-import { Route } from 'react-router'
+import SuperRoute from '../../components/common/super.route'
 
 import HomeWithData from '../../scenes/Home/index.web'
 import LoginWithData from '../../scenes/Login/index.web'
 import ProductListWithData from '../../scenes/ProductList/index.web'
 import ProductViewWithData from '../../scenes/ProductView/index.web'
 
-
-/* to fix ths
-    https://reacttraining.com/react-router/web/api/Route/render-func
-    const WrappedProductList = () => <ProductListWithData category={entity_id} />
-)*/
 
 const dynamicComps = {
     Home: HomeWithData,
@@ -34,21 +29,30 @@ const Routes = ({ rewrites }) => {
             ? dynamicComps[system]
             : dynamicComps[type]
 
+        const property = (type === 'system')
+            ? system
+            : type
 
-        routes.push({
+
+        const thisRoute = {
             path: `/${path}`,
             component,
             exact: true,
             key: entity_id
-        })
+        }
+
+        thisRoute[property] = obj[property]
+
+        routes.push(thisRoute)
 
         return obj
     })
 
+
     return (
         <div>
             {routes.map(route => (
-                <Route {...route} />
+                <SuperRoute {...route} />
             ))}
         </div>
     )

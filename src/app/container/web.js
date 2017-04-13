@@ -1,6 +1,6 @@
 // import firebase from 'firebase'
 import React, { Component } from 'react'
-import { graphql } from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
 import { RewritesList } from '../../../server/graphql/queries/rewrite'
 import Routes from '../routes/web'
 import { Header } from '../../components/web'
@@ -44,11 +44,12 @@ class UniversalApp extends Component {
 
 }
 
-export default graphql(
-    RewritesList, {
-        // name: 'getRewrites', fix this
-        options: {
-            ssr: true
-        },
+const RewritesListOptions = {
+    options: {
+        ssr: true
     }
+}
+
+export default compose(
+    graphql(RewritesList, RewritesListOptions)
 )(UniversalApp)

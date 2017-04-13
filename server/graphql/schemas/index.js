@@ -2,6 +2,7 @@ import { coreSchema } from './core'
 import { catalogSchema, catalogResolver } from './catalog'
 import { categorySchema, categoryResolver } from './category'
 import { productSchema, productResolver } from './product'
+import { cartSchema, cartResolver } from './cart'
 import { orderSchema, orderResolver } from './order'
 import { customerSchema, customerResolver } from './customer'
 import { cmsSchema } from './cms'
@@ -13,6 +14,7 @@ const generateSchema = () => [
     catalogSchema,
     categorySchema,
     productSchema,
+    cartSchema,
     orderSchema,
     customerSchema,
     cmsSchema,
@@ -25,12 +27,12 @@ const generateResolver = () =>
         catalogResolver,
         categoryResolver,
         productResolver,
+        cartResolver,
         orderResolver,
         customerResolver,
         rewriteResolver,
         rootResolver
     )
-
 
 
 export { generateSchema, generateResolver }
