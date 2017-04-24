@@ -1,10 +1,9 @@
-import { Orders } from '../../mongodb/connectors'
+import * as connectors from '../../mongodb/connectors'
 
 export const customerSchema = `
     type Group {
     entity_id: ID!
     }
-
 
     type Customer {
     entity_id: ID!
@@ -12,31 +11,25 @@ export const customerSchema = `
     firstname: String
     lastname: String
     orders: [Order]
+    address: [Address]
+    checkout: [Checkout]
+    wishlist: [Wishlist]
     group: Group
-    }
-
-    type Address {
-    entity_id: ID!
-    customer: [Customer]
-    isActive: Boolean
-    firstname: String
-    lastname: String
-    street: String
-    street2: String
-    city: String
-    zipcode: String
-    region: String
-    country: String
-    telephone: String
-    vat: String
-    isShipping: Boolean
-    isBilling: Boolean
     }
 `
 
 export const customerResolver = {
     Customer: {
-        orders: (customer) =>
-            Orders.then(res => res.find({ customer: customer.email }).toArray())
+        orders: ({ entity_id }) =>
+            connectors.Orders.then(res => res.find({ customer: entity_id }).toArray()),
+
+        address: ({ entity_id }) =>
+            connectors.Addresses.then(res => res.find({ customer: entity_id }).toArray()),
+
+        checkout: ({ entity_id }) =>
+            connectors.Checkout.then(res => res.find({ customer: entity_id }).toArray()),
+
+        wishlist: ({ entity_id }) =>
+            connectors.wishlist.then(res => res.find({ customer: entity_id }).toArray())
     }
 }

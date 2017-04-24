@@ -1,18 +1,29 @@
 export const coreSchema = `
     type Core {
     entity_id: ID!
-    storeName: String!
-    storeCountry: String!
+    store: CoreStore
     language: String!
     }
 
 
-    type CoreShipping {
+    type CoreStore {
     entity_id: ID!
+    storeName: String!
+    storeCountry: String!
+    storeCurrency: String!
     }
 
 
-    type CorePayment {
+    type CoreResource {
     entity_id: ID!
+    websiteUrl: Url
+    staticUrl: Url
     }
+
+
+    type CoreDesign {
+    entity_id: ID!
+    theme: String
+    }
+
 `

@@ -1,6 +1,8 @@
 import R from 'ramda'
 import React, { Component } from 'react'
+import { graphql, compose } from 'react-apollo'
 import styled from 'styled-components'
+import { AddProductToQuote, AddProductToWish } from '../../../server/graphql/queries/product'
 import { ScrollView, Spinner, ErrorMsg, Button, Image } from '../../components/web/'
 
 const {
@@ -88,4 +90,14 @@ class ProductView extends Component {
     }
 }
 
-export default ProductView
+
+const AddProductToQuoteOptions = {
+    props: ({ mutate }) => ({
+        addProduct: () => mutate({ variables: { product, checkout } })
+    })
+}
+
+export default compose(
+    graphql(AddProductToQuote, AddProductToQuoteOptions),
+    graphql(AddProductToWish)
+)(ProductView)

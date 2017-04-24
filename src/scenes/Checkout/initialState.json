@@ -1,11 +1,16 @@
 {
     "entity_id": null,
-    "cart": null,
     "customer": "",
-    "billing": null,
-    "shipping": null,
+    "isActive": 0,
+    "baseGrandTotal": 0,
+    "productCount": 0,
+    "productQty": 0,
+    "products": [],
+    "addressBilling": {},
+    "addressShipping": {},
     "shippingTax": 0,
-    "shippingMethod": null,
-    "paymentMethod": null,
-    "completed": false
+    "shippingMethod": 0,
+    "paymentMethod": 0,
+    "createdAt": "",
+    "updatedAt": ""
 }

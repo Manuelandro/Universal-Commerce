@@ -1,4 +1,4 @@
-import { Core, Customers, Orders, Categories, Products, Rewrites } from '../../mongodb/connectors'
+import * as connector from '../../mongodb/connectors'
 
 export const rootSchema = `
     # the schema allows the following query:
@@ -14,7 +14,7 @@ export const rootSchema = `
     }
 
     type Mutation {
-    saveCustomer: Customer
+    addProductToQuote: Checkout
     }
 
     schema {
@@ -26,27 +26,34 @@ export const rootSchema = `
 export const rootResolver = {
     Query: {
         core: () =>
-            Core.then(res => res.findOne({})),
+            connector.Core.then(res => res.findOne({})),
 
         orders: () =>
-            Orders.then(res => res.find({}).toArray()),
+            connector.Orders.then(res => res.find({}).toArray()),
 
         customers: () =>
-            Customers.then(res => res.find({}).toArray()),
+            connector.Customers.then(res => res.find({}).toArray()),
 
         category: (obj, args) =>
-            Categories.then(res => res.findOne({ entity_id: args.entity_id })),
+            connector.Categories.then(res => res.findOne({ entity_id: args.entity_id })),
 
         categories: () =>
-            Categories.then(res => res.find({}).toArray()),
+            connector.Categories.then(res => res.find({}).toArray()),
 
         product: (obj, args) =>
-            Products.then(res => res.findOne({ entity_id: args.entity_id })),
+            connector.Products.then(res => res.findOne({ entity_id: args.entity_id })),
 
         products: (obj, args) =>
-            Products.then(res => res.find({ category: args.category }).toArray()),
+            connector.Products.then(res => res.find({ category: args.category }).toArray()),
 
         rewrites: () =>
-            Rewrites.then(res => res.find({}).toArray())
+            connector.Rewrites.then(res => res.find({}).toArray())
+    },
+
+    Mutations: {
+        addProductToQuote: () => {
+            connector.Checkout.then(res => res.findOne({}))
+            connector.Products.then(res => res.findOne({}))
+        }
     }
 }

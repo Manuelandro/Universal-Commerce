@@ -1,8 +1,11 @@
+import { scalarTypesSchema, scalarTypesResolver } from './scalar.types'
+
 import { coreSchema } from './core'
 import { catalogSchema, catalogResolver } from './catalog'
 import { categorySchema, categoryResolver } from './category'
 import { productSchema, productResolver } from './product'
-import { cartSchema, cartResolver } from './cart'
+import { checkoutSchema, checkoutResolver } from './checkout'
+import { addressSchema, addressResolver } from './address'
 import { orderSchema, orderResolver } from './order'
 import { customerSchema, customerResolver } from './customer'
 import { cmsSchema } from './cms'
@@ -10,11 +13,13 @@ import { rewriteSchema, rewriteResolver } from './rewrite'
 import { rootSchema, rootResolver } from './root'
 
 const generateSchema = () => [
+    scalarTypesSchema,
     coreSchema,
     catalogSchema,
     categorySchema,
     productSchema,
-    cartSchema,
+    checkoutSchema,
+    addressSchema,
     orderSchema,
     customerSchema,
     cmsSchema,
@@ -24,10 +29,12 @@ const generateSchema = () => [
 
 const generateResolver = () =>
     Object.assign(
+        scalarTypesResolver,
         catalogResolver,
         categoryResolver,
         productResolver,
-        cartResolver,
+        checkoutResolver,
+        addressResolver,
         orderResolver,
         customerResolver,
         rewriteResolver,
