@@ -1,11 +1,9 @@
-import firebase from 'firebase'
 import React, { Component, PropTypes } from 'react'
 import { Text } from 'react-native'
 import { connect } from 'react-redux'
 import { ScrollView, Card, CardSection, Input, Button, ErrorMsg, Spinner } from '../../components/native'
 import * as actions from './actions'
 import { navigateTo } from '../../logic/Navigation'
-import { firebaseInit } from '../../logic/Firebase/init'
 
 class Login extends Component {
     static propTypes = {
@@ -21,16 +19,7 @@ class Login extends Component {
     }
 
     componentWillMount() {
-        // init firebase where the server can't read
-        firebaseInit()
-        /* if the auth state changes */
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({ logged: true })
-            } else {
-                this.setState({ logged: false })
-            }
-        })
+        /* here the logic of login action */
     }
 
     componentWillReceiveProps() {
@@ -46,7 +35,7 @@ class Login extends Component {
         switch (this.state.logged) {
             case true:
                 return (
-                    <Button onPress={() => firebase.auth().signOut()}>Logout</Button>
+                    <Button onPress={() => console.log('develop logout')}>Logout</Button>
                 )
             case false:
                 return

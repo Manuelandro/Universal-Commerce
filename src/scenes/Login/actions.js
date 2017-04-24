@@ -1,5 +1,4 @@
 import * as consts from './constants'
-import { getLogin } from '../../logic/Firebase/user.getters'
 
 export const saveField = payload => dispatch => dispatch({ type: consts.SAVE_FIELD, payload })
 
@@ -8,10 +7,8 @@ export const loginStart = payload => dispatch => {
     dispatch(loginProcess(payload))
 }
 
-export const loginProcess = ({ email, password }) => dispatch => {
-    getLogin(email, password)
-        .then(user => dispatch(loginSuccess(user)))
-        .catch(error => dispatch(loginFailed(error)))
+export const loginProcess = () => dispatch => {
+    /* some func */
 }
 
 export const loginSuccess = payload => dispatch => {

@@ -17,5 +17,4 @@ Cross Platform eCommerce App
 |[GraphQL](http://graphql.org/learn/)|GraphQL|
 |[Mongoose](http://mongoosejs.com/)|Mongoose for MongoDB|
 |[Apollo](http://www.apollodata.com/)|Apollo Client|
-|[Firebase](https://github.com/firebase/)|Firebase|
 |[React Native Codepush](https://github.com/Microsoft/react-native-code-push)|React Native Codepush|
