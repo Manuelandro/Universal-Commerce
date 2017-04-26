@@ -7,7 +7,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
 import OpticsAgent from 'optics-agent'
-import Schema from './graphql/schema'
+import Schema from './graphql/executable'
 import { host, port } from './config'
 import matchRoutesHandler from './handlers/match.routes'
 

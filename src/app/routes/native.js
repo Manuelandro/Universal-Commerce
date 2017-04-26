@@ -17,7 +17,7 @@ const dynamicComps = {
 
 const Routes = ({ rewrites }) => {
     const routes = rewrites.filter(obj => {
-        const { isEnabled, type, system, path, entity_id } = obj
+        const { isEnabled, type, system, path, id } = obj
 
         if (isEnabled === 0) {
             return true
@@ -34,7 +34,7 @@ const Routes = ({ rewrites }) => {
         const thisRoute = {
             path: `/${path}`,
             screen: component,
-            key: entity_id
+            key: id
         }
 
         thisRoute[property] = obj[property]

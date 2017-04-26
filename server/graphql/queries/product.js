@@ -17,7 +17,7 @@ export const ProductlistQuery = gql`
 
 export const ProductViewQuery = gql`
     query getProductData($product: Int!) {
-        product(entity_id: $product) {
+        product(id: $product) {
             name
             small_image
             brand

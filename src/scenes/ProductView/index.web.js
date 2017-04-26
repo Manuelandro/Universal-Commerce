@@ -14,9 +14,9 @@ const ProductViewWithData = (props) =>
 
 
 const ProductViewQueryOptions = {
-    options: ({ product: { entity_id } }) => ({
+    options: ({ product: { id } }) => ({
         variables: {
-            product: parseInt(entity_id, 10)
+            product: parseInt(id, 10)
         }
     }),
     props: ({ ownProps, data: { loading, error, product } }) => ({

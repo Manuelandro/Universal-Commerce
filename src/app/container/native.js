@@ -16,11 +16,6 @@ class UniversalApp extends Component {
         }).isRequired
     }
 
-    constructor() {
-        super()
-        this.state = { logged: null }
-    }
-
     render() {
         const { dispatch, routing, data: { loading, categories } } = this.props
 

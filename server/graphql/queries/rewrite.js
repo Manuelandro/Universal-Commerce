@@ -3,7 +3,7 @@ import { gql } from 'react-apollo'
 export const RewritesList = gql`
     query getAllRewrites {
         rewrites {
-            entity_id
+            id
             type
             path
             isEnabled
@@ -13,17 +13,17 @@ export const RewritesList = gql`
             }
             ... on RewriteCategory {
                 category {
-                    entity_id
+                    id
                 }
             }
             ... on RewriteProduct {
                 product {
-                    entity_id
+                    id
                 }
             }
             ... on RewriteCms {
                 cms {
-                    entity_id
+                    id
                 }
             }
         }

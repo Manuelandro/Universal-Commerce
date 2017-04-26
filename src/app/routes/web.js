@@ -19,7 +19,7 @@ const Routes = ({ rewrites }) => {
     const routes = []
 
     rewrites.filter(obj => {
-        const { isEnabled, type, system, path, entity_id } = obj
+        const { isEnabled, type, system, path, id } = obj
 
         if (isEnabled === 0) {
             return false
@@ -38,7 +38,7 @@ const Routes = ({ rewrites }) => {
             path: `/${path}`,
             component,
             exact: true,
-            key: entity_id
+            key: id
         }
 
         thisRoute[property] = obj[property]

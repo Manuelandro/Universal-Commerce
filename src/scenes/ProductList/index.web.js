@@ -15,9 +15,9 @@ const ProductListWithData = (props) =>
 
 
 const ProductlistQueryOptions = {
-    options: ({ category: { entity_id } }) => ({
+    options: ({ category: { id } }) => ({
         variables: {
-            category: parseInt(entity_id, 10)
+            category: parseInt(id, 10)
         }
     }),
     props: ({ ownProps, data: { loading, error, products } }) => ({

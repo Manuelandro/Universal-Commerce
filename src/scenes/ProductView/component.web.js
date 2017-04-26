@@ -2,7 +2,7 @@ import R from 'ramda'
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import styled from 'styled-components'
-import { AddProductToQuote, AddProductToWish } from '../../../server/graphql/queries/product'
+import { AddProductToQuote, AddProductToWish } from '../../../server/graphql/mutations/product'
 import { ScrollView, Spinner, ErrorMsg, Button, Image } from '../../components/web/'
 
 const {
